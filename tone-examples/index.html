@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="Tone.js" charset="utf-8"></script>
+    <script src="scripts.js" charset="utf-8"></script>
+    <title>Tone JS Examples For Group 3</title>
+  </head>
+  <body>
+    <h1>Tone JS Examples For Group 3</h1>
+    <p>Here are a few examples of the Tone.JS library in action. Below each example is the JavaScript
+    code for that example.</p>
+    <h2>Adjustable Oscillator w/Delay</h2>
+    <div class="ui-button" onclick="oscState = oscClick(oscState, oscillator)">
+      On/Off
+    </div>
+    <span>Frequency:</span><br />
+
+    <div class="slidecontainer">
+      <input type="range" min="1" max="2000" value="440" class="slider" id="freq-slider" oninput="updateFreq(this.value, oscillator)">
+    </div>
+
+    <div id="frequency-display">
+      440hz
+    </div>
+    <h3>Code:</h3>
+      <code class="code-example">
+
+        <xmp>
+          //oscillator initialization
+          let oscState = false;
+          let oscillator = new Tone.Oscillator(440, 'sine').toMaster().stop();
+          var pingPong = new Tone.PingPongDelay("4n", 0.2).toMaster();
+          oscillator.connect(pingPong);
+
+          //turns on/off oscillator
+          let oscClick = (oscState, oscillator) => {
+            let newOscState = !oscState;
+
+            if(!oscState) {
+              //if oscillator is off, turn it on
+              oscillator.start();
+            } else {
+              //if oscillator is on, turn it off
+              oscillator.stop();
+            }
+
+            return newOscState;
+          }
+
+          //updates frquency of oscillator & UI
+          let updateFreq = (value, oscillator) => {
+            //update oscillator frequency
+            oscillator.frequency.value = value;
+
+            let div = document.getElementById('frequency-display');
+            div.innerHTML = value + 'hz';
+          }
+
+        </xmp>
+      </code>
+  </body>
+</html>
