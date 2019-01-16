@@ -1,7 +1,7 @@
-//oscillator initialization
+//oscillator & effect initialization
 let oscState = false;
 let oscillator = new Tone.Oscillator(440, 'sine').toMaster().stop();
-var pingPong = new Tone.PingPongDelay("4n", 0.5).toMaster();
+var pingPong = new Tone.PingPongDelay('4n', 0.2).toMaster();
 oscillator.connect(pingPong);
 
 //turns on/off oscillator
@@ -19,11 +19,12 @@ let oscClick = (oscState, oscillator) => {
   return newOscState;
 }
 
-//updates frquency of oscillator & UI
+//updates frequency of oscillator & UI
 let updateFreq = (value, oscillator) => {
   //update oscillator frequency
   oscillator.frequency.value = value;
 
+  //update frequency display
   let div = document.getElementById('frequency-display');
   div.innerHTML = value + 'hz';
 }
