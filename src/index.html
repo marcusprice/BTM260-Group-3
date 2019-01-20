@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <script src="Tone.js" charset="utf-8"></script>
-    <script src="Synth.js" charset="utf-8"></script>
+    <script src="./js/Tone.js" charset="utf-8"></script>
+    <script src="./js/Synth.js" charset="utf-8"></script>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <button type="button" name="button" onclick="keyboard.power()">Turn on/off Synth</button>
+    <button type="button" name="button" onclick="synthesizer.power()">Turn on/off Synth</button><br />
+    <h2>Oscillator</h2>
+    <span>Oscillator Waveform: </span>
+    <select oninput="synthesizer.changeWaveform(this)" class="" name="">
+      <option value="sine">Sine</option>
+      <option value="sawtooth">Sawtooth</option>
+      <option value="square">Square</option>
+      <option value="triangle">Triange</option>
+    </select><br />
+    <span>Oscillator Frequency</span>
+    <input type="range" value="440" min="50" max="6000" oninput="synthesizer.changeOscFreq(this)" name=""><br />
+
+    <h2>Filter: </h2>
+    <span>Filter Type: </span>
+    <select oninput="synthesizer.changeFilterType(this)" class="" name="">
+      <option value="lowpass">Lowpass</option>
+      <option value="highpass">Highpass</option>
+      <option value="bandpass">Bandpass</option>
+      <option value="notch">Notch</option>
+    </select><br />
+    <span>Cutoff Frequency</span>
+    <input type="range" value="440" min="1" max="6000" oninput="synthesizer.changeCutoffFreq(this)" name=""><br />
+    <span>Resonance</span>
+    <input type="range" value="1" min="1" max="20" oninput="synthesizer.changeQ(this)" name=""><br />
+
+    <h2>Effects: </h2>
+    <h3>Delay</h3>
+    <span>Delay Time: </span>
+    <input type="range" value="440" min="1" max="1000" oninput="synthesizer.changeDelayTime(this)" name=""><br />
+    <span>Delay Feedback: </span>
+    <input type="range" value="2" min="1" max="9" oninput="synthesizer.changeDelayFeedback(this)" name=""><br />
   </body>
   <script type="text/javascript">
-    let keyboard = new Synth(new Tone.Oscillator(400, 'sine'), new Tone.PingPongDelay('4n', .2));
+    let synthesizer = new Synth(
+      new Tone.Oscillator(400, 'sine'),
+      new Tone.PingPongDelay('4n', .2),
+      new Tone.Filter(50, 'lowpass', -48)
+    );
   </script>
 </html>
