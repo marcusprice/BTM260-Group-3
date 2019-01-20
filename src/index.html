@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="Tone.js" charset="utf-8"></script>
+    <script src="Synth.js" charset="utf-8"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button type="button" name="button" onclick="keyboard.power()">Turn on/off Synth</button>
+  </body>
+  <script type="text/javascript">
+    let keyboard = new Synth(new Tone.Oscillator(400, 'sine'), new Tone.PingPongDelay('4n', .2));
+  </script>
+</html>
