@@ -1,10 +1,11 @@
 class Synth {
-  constructor(oscillator, delay, filter) {
+  constructor(oscillator, filter, delay) {
     this.oscillator = oscillator;
     this.delay = delay;
     this.filter = filter;
     this.state = false;
 
+    //chain all devices
     this.oscillator.chain(filter, delay, Tone.Master);
   }
 
@@ -19,34 +20,60 @@ class Synth {
   }
 
   //oscillator methods
-  changeOscFreq(input) {
+  //getters
+  getOscFreq() {
+    return this.oscillator.frequency.value;
+  }
+
+  getOscWaveform() {
+    return this.oscillator.type;
+  }
+
+  //setters
+  setOscFreq(input) {
     this.oscillator.frequency.value = input.value;
   }
 
-  changeWaveform(input) {
+  setWaveform(input) {
     this.oscillator.type = input.value;
   }
 
+
   //filter methods
-  changeFilterType(input) {
+  //getters
+  getFilterType() {
+    return this.filter.type;
+  }
+
+  getCutoffFreq() {
+    return this.filter.frequency.value;
+  }
+
+  getQ() {
+    return this.filter.Q.value;
+  }
+
+  //setters
+  setFilterType(input) {
     this.filter.type = input.value;
   }
 
-  changeCutoffFreq(input) {
+  setCutoffFreq(input) {
     this.filter.frequency.value = input.value;
   }
 
-  changeQ(input) {
+  setQ(input) {
     this.filter.Q.value = input.value;
     this.filter.gain.value = Math.sqrt(input.value);
   }
 
+
   //delay methods
-  changeDelayTime(input) {
+  setDelayTime(input) {
     this.delay.delayTime.value = input.value * .01;
   }
 
-  changeDelayFeedback(input) {
+  setDelayFeedback(input) {
     this.delay.feedback.value = input.value * .1;
   }
 }
