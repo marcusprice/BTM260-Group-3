@@ -4,7 +4,8 @@ class Synth {
     this.delay = delay;
     this.filter = filter;
     this.state = false;
-    this.oscillator.chain(this.delay, this.filter, Tone.Master).toMaster().stop();
+
+    this.oscillator.chain(filter, delay, Tone.Master);
   }
 
   power() {
@@ -18,7 +19,6 @@ class Synth {
   }
 
   //oscillator methods
-
   changeOscFreq(input) {
     this.oscillator.frequency.value = input.value;
   }
@@ -28,7 +28,6 @@ class Synth {
   }
 
   //filter methods
-  //todo: fix bandpass bug, make an option for no filter
   changeFilterType(input) {
     this.filter.type = input.value;
   }
@@ -43,7 +42,6 @@ class Synth {
   }
 
   //delay methods
-  //todo: delay not working now?
   changeDelayTime(input) {
     this.delay.delayTime.value = input.value * .01;
   }
