@@ -1,26 +1,38 @@
 class Synth {
-  constructor(oscillator, filter, delay) {
+  constructor(oscillator, filter, delay, reverb) {
+    //construct audio devices
     this.oscillator = oscillator;
-    this.delay = delay;
     this.filter = filter;
-    this.state = false;
+    this.delay = delay;
+    this.reverb = reverb;
+
+    //set states
+    this.oscState = false;
+    this.filterState = true;
 
     //chain all devices
-    this.oscillator.chain(filter, delay, Tone.Master);
-  }
-
-  power() {
-    if(!this.state) {
-      this.oscillator.start();
-      this.state = true;
-    } else {
-      this.oscillator.stop();
-      this.state = false;
-    }
+    this.oscillator.chain(this.filter, this.delay, this.reverb, Tone.Master);
   }
 
   //oscillator methods
-  //getters
+
+  power() {
+    if(!this.oscState) {
+      //if oscillator is off, start it
+      this.oscillator.start();
+    } else {
+      //if oscillator is on, turn it off
+      this.oscillator.stop();
+    }
+    //update oscState for next interaction
+    this.oscState = !this.oscState;
+  }
+
+  //oscillator getters
+  getOscStatus() {
+    return this.oscState;
+  }
+
   getOscFreq() {
     return this.oscillator.frequency.value;
   }
@@ -29,7 +41,7 @@ class Synth {
     return this.oscillator.type;
   }
 
-  //setters
+  //oscillator setters
   setOscFreq(input) {
     this.oscillator.frequency.value = input.value;
   }
@@ -40,7 +52,21 @@ class Synth {
 
 
   //filter methods
-  //getters
+
+  //filter getters
+  filterOnOff() {
+    if(this.filterState) {
+      this.oscillator.disconnect(this.filter);
+    } else {
+      this.oscillator.connect(this.filter);
+    }
+    this.filterState = !this.filterState;
+  }
+
+  getFilterState() {
+    return this.filterState;
+  }
+
   getFilterType() {
     return this.filter.type;
   }
@@ -53,7 +79,7 @@ class Synth {
     return this.filter.Q.value;
   }
 
-  //setters
+  //filter setters
   setFilterType(input) {
     this.filter.type = input.value;
   }
@@ -67,13 +93,43 @@ class Synth {
     this.filter.gain.value = Math.sqrt(input.value);
   }
 
-
   //delay methods
+
+  //delay getters
+  getDelayTime(input) {
+    return this.delay.delayTime.value;
+  }
+
+  getDelayFeedback(input) {
+    return this.delay.feedback.value;
+  }
+
+  //delay setters
   setDelayTime(input) {
     this.delay.delayTime.value = input.value * .01;
   }
 
   setDelayFeedback(input) {
     this.delay.feedback.value = input.value * .1;
+  }
+
+  //reverb methods
+
+  //reverb getters
+  getReverbRoomSize(input) {
+    return this.reverb.roomSize.value;
+  }
+
+  getReverbDampening(input) {
+    return this.reverb.dampening.value;
+  }
+
+  //reverb setters
+  setReverbRoomSize(input) {
+    this.reverb.roomSize.value = input.value * .001;
+  }
+
+  setReverbDampening(input) {
+    this.reverb.dampening.value = input.value;
   }
 }

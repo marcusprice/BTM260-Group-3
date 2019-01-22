@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <script src="./js/Tone.js" charset="utf-8"></script>
     <script src="./js/Synth.js" charset="utf-8"></script>
@@ -7,20 +8,22 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+
   <body>
-    <button type="button" name="button" onclick="synthesizer.power()">Turn on/off Synth</button><br />
+    <button type="button" name="button" onclick="synthesizer.power()">Turn on/off Synth</button><br /><br />
     <h2>Oscillator</h2>
     <span>Oscillator Waveform: </span>
     <select oninput="synthesizer.setWaveform(this)" class="" name="">
       <option value="sine">Sine</option>
       <option value="sawtooth">Sawtooth</option>
       <option value="square">Square</option>
-      <option value="triangle">Triange</option>
+      <option value="triangle">Triangle</option>
     </select><br />
     <span>Oscillator Frequency</span>
     <input type="range" value="440" min="50" max="6000" oninput="synthesizer.setOscFreq(this)" name=""><br />
 
     <h2>Filter: </h2>
+    <button type="button" name="button" onclick="synthesizer.filterOnOff()">Turn on/off Filter</button><br />
     <span>Filter Type: </span>
     <select oninput="synthesizer.setFilterType(this)" class="" name="">
       <option value="lowpass">Lowpass</option>
@@ -34,17 +37,27 @@
     <input type="range" value="1" min="1" max="20" oninput="synthesizer.setQ(this)" name=""><br />
 
     <h2>Effects: </h2>
+
     <h3>Delay</h3>
     <span>Delay Time: </span>
     <input type="range" value="440" min="1" max="1000" oninput="synthesizer.setDelayTime(this)" name=""><br />
     <span>Delay Feedback: </span>
     <input type="range" value="2" min="1" max="9" oninput="synthesizer.setDelayFeedback(this)" name=""><br />
+
+    <h3>Reverb: </h3>
+    <span>Room Size: </span>
+    <input type="range" value="500" min="1" max="950" oninput="synthesizer.setReverbRoomSize(this)" name=""><br />
+    <span>Dampening: </span>
+    <input type="range" value="3000" min="1" max="6000" oninput="synthesizer.setReverbDampening(this)" name=""><br />
   </body>
+
   <script type="text/javascript">
     let synthesizer = new Synth(
       new Tone.Oscillator(400, 'sine'),
       new Tone.Filter(50, 'lowpass', -48),
-      new Tone.PingPongDelay('4n', .2)
+      new Tone.PingPongDelay('4n', .2),
+      new Tone.Freeverb(.5, 3000)
     );
   </script>
+
 </html>
