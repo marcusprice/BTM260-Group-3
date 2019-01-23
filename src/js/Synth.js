@@ -9,22 +9,27 @@ class Synth {
     //set states
     this.oscState = false;
     this.filterState = true;
+    this.delay.wet.value = .5;
+    this.reverb.wet.value = .5;
 
     //chain all devices
     this.oscillator.chain(this.filter, this.delay, this.reverb, Tone.Master);
   }
 
-  //oscillator methods
+ /**oscillator methods
+  *@see this.oscillator
+  *
+  */
 
   power() {
     if(!this.oscState) {
       //if oscillator is off, start it
       this.oscillator.start();
     } else {
-      //if oscillator is on, turn it off
+      //if oscillator is on, stop it
       this.oscillator.stop();
     }
-    //update oscState for next interaction
+    //update this.oscState for next interaction
     this.oscState = !this.oscState;
   }
 
@@ -51,7 +56,9 @@ class Synth {
   }
 
 
-  //filter methods
+ /**filter methods
+  *@see this.filter
+  */
 
   //filter getters
   filterOnOff() {
@@ -93,7 +100,9 @@ class Synth {
     this.filter.gain.value = Math.sqrt(input.value);
   }
 
-  //delay methods
+ /**delay methods
+  *@see this.delay
+  */
 
   //delay getters
   getDelayTime(input) {
@@ -102,6 +111,10 @@ class Synth {
 
   getDelayFeedback(input) {
     return this.delay.feedback.value;
+  }
+
+  getDelayWet() {
+    return this.delay.wet.value;
   }
 
   //delay setters
@@ -113,7 +126,13 @@ class Synth {
     this.delay.feedback.value = input.value * .1;
   }
 
-  //reverb methods
+  setDelayWet(input) {
+    this.delay.wet.value = input.value * .1;
+  }
+
+ /**reverb methods
+  *@see this.reverb
+  */
 
   //reverb getters
   getReverbRoomSize(input) {
@@ -124,6 +143,10 @@ class Synth {
     return this.reverb.dampening.value;
   }
 
+  getReverbWet() {
+    return this.reverb.wet.value;
+  }
+
   //reverb setters
   setReverbRoomSize(input) {
     this.reverb.roomSize.value = input.value * .001;
@@ -131,5 +154,9 @@ class Synth {
 
   setReverbDampening(input) {
     this.reverb.dampening.value = input.value;
+  }
+
+  setReverbWet(input) {
+    this.reverb.wet.value = input.value * .1;
   }
 }
