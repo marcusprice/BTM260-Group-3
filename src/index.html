@@ -54,6 +54,12 @@
     <input type="range" value="3000" min="1" max="6000" oninput="synthesizer.setReverbDampening(this)" name=""><br />
     <span>Dry/Wet: </span>
     <input type="range" value="5" min="0" max="10" oninput="synthesizer.setReverbWet(this)" name=""><br />
+
+    <h2>Amp</h2>
+    <h3>Distortion</h3>
+    <input type="range" value="5" min="0" max="10" oninput="" name="">
+    <h3>Volume</h3>
+    <input type="range" value="5" min="0" max="10" oninput="" name=""><br />
   </body>
 
   <script type="text/javascript">
@@ -62,7 +68,8 @@
       new Tone.Oscillator(400, 'sine'),
       new Tone.Filter(50, 'lowpass', -48),
       new Tone.PingPongDelay('4n', .2),
-      new Tone.Freeverb(.5, 3000)
+      new Tone.Freeverb(.5, 3000),
+      new Tone.Volume(-12);
     );
 
   </script>

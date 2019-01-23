@@ -1,10 +1,11 @@
 class Synth {
-  constructor(oscillator, filter, delay, reverb) {
+  constructor(oscillator, filter, delay, reverb, volume) {
     //construct audio devices
     this.oscillator = oscillator;
     this.filter = filter;
     this.delay = delay;
     this.reverb = reverb;
+    this.volume = volume;
 
     //set states
     this.oscState = false;
@@ -13,7 +14,7 @@ class Synth {
     this.reverb.wet.value = .5;
 
     //chain all devices
-    this.oscillator.chain(this.filter, this.delay, this.reverb, Tone.Master);
+    this.oscillator.chain(this.filter, this.delay, this.reverb, this.volume, Tone.Master);
   }
 
  /**oscillator methods
@@ -159,4 +160,13 @@ class Synth {
   setReverbWet(input) {
     this.reverb.wet.value = input.value * .1;
   }
+
+  /**amp methods
+   *@see this.volume
+   *
+   */
+
+   setVolume(input) {
+
+   }
 }
