@@ -167,6 +167,6 @@ class Synth {
    */
 
    setVolume(input) {
-
+     console.log(input.value);
    }
 }

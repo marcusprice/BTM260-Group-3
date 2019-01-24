@@ -59,7 +59,7 @@
     <h3>Distortion</h3>
     <input type="range" value="5" min="0" max="10" oninput="" name="">
     <h3>Volume</h3>
-    <input type="range" value="5" min="0" max="10" oninput="" name=""><br />
+    <input type="range" value="0" min="-12" max="12" oninput="synthesizer.setVolume(this)" name=""><br />
   </body>
 
   <script type="text/javascript">
@@ -69,7 +69,7 @@
       new Tone.Filter(50, 'lowpass', -48),
       new Tone.PingPongDelay('4n', .2),
       new Tone.Freeverb(.5, 3000),
-      new Tone.Volume(-12);
+      new Tone.Volume(-12)
     );
 
   </script>
