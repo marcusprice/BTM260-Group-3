@@ -10,56 +10,66 @@
   </head>
 
   <body>
-    <button type="button" name="button" onclick="synthesizer.power()">Turn on/off Synth</button>
-    <h2>Oscillator</h2>
-    <span>Oscillator Waveform: </span>
-    <select oninput="synthesizer.setWaveform(this)" class="" name="">
-      <option value="sine">Sine</option>
-      <option value="sawtooth">Sawtooth</option>
-      <option value="square">Square</option>
-      <option value="triangle">Triangle</option>
-    </select><br />
-    <span>Oscillator Frequency</span>
-    <input type="range" value="440" min="50" max="6000" oninput="synthesizer.setOscFreq(this)" name=""><br />
+    <div class="synth">
+      <div class="synth-module">
+        <h2>Oscillator</h2>
+        <button type="button" name="button" onclick="synthesizer.power()">Turn on/off Synth</button> <br /> <br />
+        <span>Oscillator Waveform: </span>
+        <select oninput="synthesizer.setWaveform(this)" class="" name="">
+          <option value="sine">Sine</option>
+          <option value="sawtooth">Sawtooth</option>
+          <option value="square">Square</option>
+          <option value="triangle">Triangle</option>
+        </select><br />
+        <span>Oscillator Frequency</span>
+        <input type="range" value="440" min="50" max="6000" oninput="synthesizer.setOscFreq(this)" name=""><br />
+      </div>
 
-    <h2>Filter: </h2>
+      <div class="synth-module">
+        <h2>Filter</h2>
 
-    <button type="button" name="button" onclick="synthesizer.filterOnOff()">Turn on/off Filter</button><br /><br />
-    <span>Filter Type: </span>
-    <select oninput="synthesizer.setFilterType(this)" class="" name="">
-      <option value="lowpass">Lowpass</option>
-      <option value="highpass">Highpass</option>
-      <option value="bandpass">Bandpass</option>
-      <option value="notch">Notch</option>
-    </select><br />
-    <span>Cutoff Frequency</span>
-    <input type="range" value="440" min="1" max="6000" oninput="synthesizer.setCutoffFreq(this)" name=""><br />
-    <span>Resonance</span>
-    <input type="range" value="1" min="1" max="20" oninput="synthesizer.setQ(this)" name=""><br />
+        <button type="button" name="button" onclick="synthesizer.filterOnOff()">Turn on/off Filter</button><br /><br />
+        <span>Filter Type: </span>
+        <select oninput="synthesizer.setFilterType(this)" class="" name="">
+          <option value="lowpass">Lowpass</option>
+          <option value="highpass">Highpass</option>
+          <option value="bandpass">Bandpass</option>
+          <option value="notch">Notch</option>
+        </select><br />
+        <span>Cutoff Frequency</span>
+        <input type="range" value="440" min="1" max="6000" oninput="synthesizer.setCutoffFreq(this)" name=""><br />
+        <span>Resonance</span>
+        <input type="range" value="1" min="1" max="20" oninput="synthesizer.setQ(this)" name=""><br />
+      </div>
 
-    <h2>Effects: </h2>
+      <div class="synth-module">
+        <h2>Amp</h2>
+        <span>Distortion: </span>
+        <input type="range" value="5" min="0" max="10" oninput="" name=""><br />
+        <span>Volume: </span>
+        <input type="range" value="0" min="-48" max="48" oninput="synthesizer.setVolume(this)" name=""><br />
+      </div>
 
-    <h3>Delay</h3>
-    <span>Delay Time: </span>
-    <input type="range" value="440" min="1" max="1000" oninput="synthesizer.setDelayTime(this)" name=""><br />
-    <span>Delay Feedback: </span>
-    <input type="range" value="2" min="1" max="9" oninput="synthesizer.setDelayFeedback(this)" name=""><br />
-    <span>Dry/Wet: </span>
-    <input type="range" value="5" min="0" max="10" oninput="synthesizer.setDelayWet(this)" name=""><br />
+      <div class="synth-module">
+        <h2>Effects</h2>
 
-    <h3>Reverb: </h3>
-    <span>Room Size: </span>
-    <input type="range" value="500" min="1" max="950" oninput="synthesizer.setReverbRoomSize(this)" name=""><br />
-    <span>Dampening: </span>
-    <input type="range" value="3000" min="1" max="6000" oninput="synthesizer.setReverbDampening(this)" name=""><br />
-    <span>Dry/Wet: </span>
-    <input type="range" value="5" min="0" max="10" oninput="synthesizer.setReverbWet(this)" name=""><br />
+        <h3>Delay</h3>
+        <span>Delay Time: </span>
+        <input type="range" value="440" min="1" max="1000" oninput="synthesizer.setDelayTime(this)" name=""><br />
+        <span>Delay Feedback: </span>
+        <input type="range" value="2" min="1" max="9" oninput="synthesizer.setDelayFeedback(this)" name=""><br />
+        <span>Dry/Wet: </span>
+        <input type="range" value="5" min="0" max="10" oninput="synthesizer.setDelayWet(this)" name=""><br />
 
-    <h2>Amp</h2>
-    <h3>Distortion</h3>
-    <input type="range" value="5" min="0" max="10" oninput="" name="">
-    <h3>Volume</h3>
-    <input type="range" value="0" min="-12" max="12" oninput="synthesizer.setVolume(this)" name=""><br />
+        <h3>Reverb: </h3>
+        <span>Room Size: </span>
+        <input type="range" value="500" min="1" max="950" oninput="synthesizer.setReverbRoomSize(this)" name=""><br />
+        <span>Dampening: </span>
+        <input type="range" value="3000" min="1" max="6000" oninput="synthesizer.setReverbDampening(this)" name=""><br />
+        <span>Dry/Wet: </span>
+        <input type="range" value="5" min="0" max="10" oninput="synthesizer.setReverbWet(this)" name="">
+      </div>
+    </div>
   </body>
 
   <script type="text/javascript">

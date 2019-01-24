@@ -14,7 +14,7 @@ class Synth {
     this.reverb.wet.value = .5;
 
     //chain all devices
-    this.oscillator.chain(this.filter, this.delay, this.reverb, this.volume, Tone.Master);
+    this.oscillator.chain(this.filter, this.volume, this.delay, this.reverb, Tone.Master);
   }
 
  /**oscillator methods
@@ -167,6 +167,6 @@ class Synth {
    */
 
    setVolume(input) {
-     console.log(input.value);
+     this.volume.volume.value = input.value;
    }
 }
