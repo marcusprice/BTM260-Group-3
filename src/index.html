@@ -15,7 +15,7 @@
         <h2>Oscillator</h2>
         <button type="button" name="button" onclick="synthesizer.power()">Turn on/off Synth</button> <br /> <br />
         <span>Oscillator Waveform: </span>
-        <select oninput="synthesizer.setWaveform(this)" class="" name="">
+        <select oninput="synthesizer.setOscWaveform(this)" class="" name="">
           <option value="sine">Sine</option>
           <option value="sawtooth">Sawtooth</option>
           <option value="square">Square</option>
@@ -54,7 +54,6 @@
         <span>Resonance</span>
         <input type="range" value="1" min="1" max="20" oninput="synthesizer.setQ(this)" name=""><br />
       </div>
-Envelope
       <div class="synth-module">
         <h2>Amplifier</h2>
         <span>Distortion: </span>
