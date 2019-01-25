@@ -71,6 +71,24 @@ class Synth {
   *@see this.filter
   */
 
+  //envelope getters
+  getAttack(input) {
+    return this.envelope.attack;
+  }
+
+  getDecay(input) {
+    return this.envelope.decay;
+  }
+
+  getSustain(input) {
+    return this.envelope.sustain;
+  }
+
+  getRelease(input) {
+    return this.envelope.release;
+  }
+
+  //envelope setters
   setAttack(input) {
     this.envelope.attack = input.value;
   }
