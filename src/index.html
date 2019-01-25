@@ -43,9 +43,9 @@
       </div>
 
       <div class="synth-module">
-        <h2>Amp</h2>
+        <h2>Amplifier</h2>
         <span>Distortion: </span>
-        <input type="range" value="5" min="0" max="10" oninput="" name=""><br />
+        <input type="range" value="0" min="0" max="10" oninput="synthesizer.setDistortion(this)" name=""><br />
         <span>Volume: </span>
         <input type="range" value="0" min="-48" max="48" oninput="synthesizer.setVolume(this)" name=""><br />
       </div>
@@ -77,9 +77,10 @@
     const synthesizer = new Synth(
       new Tone.Oscillator(400, 'sine'),
       new Tone.Filter(50, 'lowpass', -48),
+      new Tone.Distortion(0.0),
+      new Tone.Volume(-12),
       new Tone.PingPongDelay('4n', .2),
-      new Tone.Freeverb(.5, 3000),
-      new Tone.Volume(-12)
+      new Tone.Freeverb(.5, 3000)
     );
 
   </script>

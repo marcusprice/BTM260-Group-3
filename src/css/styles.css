@@ -3,7 +3,15 @@ h1, h2, h3, span {
   font-weight: 100;
 }
 
+.synth {
+  text-align: center;
+  padding: 5px;
+  border: solid gray 1px;
+  border-radius: 5px;
+}
+
 .synth-module {
+  text-align: left;
   display: inline-block;
   vertical-align: top;
   margin-right: 10px;
