@@ -330,55 +330,97 @@ class Synth {
     this.delay.wet.value = input.value * .1;
   }
 
- /**reverb methods
-  *@see this.reverb
-  */
+  //reverb methods
 
   //reverb getters
+
+ /**
+  *get reverb room size
+  *@function returns current reverb room size
+  *@return float
+  */
   getReverbRoomSize(input) {
     return this.reverb.roomSize.value;
   }
 
+  /**
+   *get reverb dampening
+   *@function returns current reverb dampening
+   *@return float
+   */
   getReverbDampening(input) {
     return this.reverb.dampening.value;
   }
 
+  /**
+   *get reverb wet value
+   *@function returns current wet value
+   *@return float
+   */
   getReverbWet() {
     return this.reverb.wet.value;
   }
 
   //reverb setters
+
+  /**
+   *set reverb room size
+   *@function sets reverb room size
+   */
   setReverbRoomSize(input) {
     this.reverb.roomSize.value = input.value * .001;
   }
 
+  /**
+   *set reverb dampening
+   *@function sets reverb dampening
+   */
   setReverbDampening(input) {
     this.reverb.dampening.value = input.value;
   }
 
+  /**
+   *set reverb wet value
+   *@function sets wet value
+   */
   setReverbWet(input) {
     this.reverb.wet.value = input.value * .1;
   }
 
-  /**amp methods
-   *@see this.distortion, this.volume
-   *
-   */
+   //amp methods
 
    //amp getters
+
+   /**
+    *get volume value
+    *@function gets volume value
+    */
    getVolume(input) {
      return this.volume.volume.value;
    }
 
+   /**
+    *get distortion value
+    *@function gets distortion value
+    */
    getDistortion(input) {
      return this.distortion._distortion.value;
    }
 
    //amp setters
+
+   /**
+    *sets volume value
+    *@function sets volume value
+    */
    setVolume(input) {
      this.volume.volume.value = input.value;
    }
 
+   /**
+    *sets distortion value
+    *@function sets distortion value
+    */
    setDistortion(input) {
      this.distortion.distortion = input.value * .1;
    }
