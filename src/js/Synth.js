@@ -92,13 +92,20 @@ class Synth {
    *@function sets the oscillator waveform
    *@return none
    */
-  setWaveform(input) {
+  setOscWaveform(input) {
     this.oscillator.type = input.value;
   }
 
- /**envelope methods
-  *@see this.filter
-  */
+  //envelope methods
+
+  /**
+   *triggers the envelope to make a sound
+   *@function triggers the envelope to make a sound
+   *@return none
+   */
+  triggerEnvelope() {
+    this.envelope.triggerAttackRelease(this.envelope.release);
+  }
 
   //envelope getters
 
@@ -107,7 +114,7 @@ class Synth {
    *@function gets the current attack value
    *@return float
    */
-  getAttack(input) {
+  getEnvelopeAttack(input) {
     return this.envelope.attack;
   }
 
@@ -116,7 +123,7 @@ class Synth {
    *@function gets the current decay value
    *@return float
    */
-  getDecay(input) {
+  getEnvelopeDecay(input) {
     return this.envelope.decay;
   }
 
@@ -125,7 +132,7 @@ class Synth {
    *@function gets the current sustain value
    *@return float
    */
-  getSustain(input) {
+  getEnvelopeSustain(input) {
     return this.envelope.sustain;
   }
 
@@ -134,7 +141,7 @@ class Synth {
    *@function gets the current release value
    *@return float
    */
-  getRelease(input) {
+  getEnvelopeRelease(input) {
     return this.envelope.release;
   }
 
@@ -145,7 +152,7 @@ class Synth {
    *@function sets the attack value
    *@return none
    */
-  setAttack(input) {
+  setEnvelopeAttack(input) {
     this.envelope.attack = input.value;
   }
 
@@ -154,7 +161,7 @@ class Synth {
    *@function sets the decay value
    *@return none
    */
-  setDecay(input) {
+  setEnvelopeDecay(input) {
     this.envelope.decay = input.value;
   }
 
@@ -163,7 +170,7 @@ class Synth {
    *@function sets the sustain value
    *@return none
    */
-  setSustain(input) {
+  setEnvelopeSustain(input) {
     this.envelope.sustain = input.value;
   }
 
@@ -172,17 +179,8 @@ class Synth {
    *@function sets the release value
    *@return none
    */
-  setRelease(input) {
+  setEnvelopeRelease(input) {
     this.envelope.release = input.value;
-  }
-
-  /**
-   *triggers the envelope to make a sound
-   *@function triggers the envelope to make a sound
-   *@return none
-   */
-  triggerEnvelope() {
-    this.envelope.triggerAttackRelease(this.envelope.release);
   }
 
   //filter methods
