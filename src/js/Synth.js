@@ -1,7 +1,8 @@
 class Synth {
-  constructor(oscillator, filter, distortion, volume, delay, reverb) {
+  constructor(oscillator, envelope, filter, distortion, volume, delay, reverb) {
     //construct audio devices
     this.oscillator = oscillator;
+    this.envelope = envelope;
     this.filter = filter;
     this.distortion = distortion;
     this.volume = volume;
@@ -17,6 +18,7 @@ class Synth {
 
     //chain all devices
     this.oscillator.chain(
+      this.envelope,
       this.filter,
       this.distortion,
       this.volume,
@@ -65,6 +67,47 @@ class Synth {
     this.oscillator.type = input.value;
   }
 
+ /**envelope methods
+  *@see this.filter
+  */
+
+  //envelope getters
+  getAttack(input) {
+    return this.envelope.attack;
+  }
+
+  getDecay(input) {
+    return this.envelope.decay;
+  }
+
+  getSustain(input) {
+    return this.envelope.sustain;
+  }
+
+  getRelease(input) {
+    return this.envelope.release;
+  }
+
+  //envelope setters
+  setAttack(input) {
+    this.envelope.attack = input.value;
+  }
+
+  setDecay(input) {
+    this.envelope.decay = input.value;
+  }
+
+  setSustain(input) {
+    this.envelope.sustain = input.value;
+  }
+
+  setRelease(input) {
+    this.envelope.release = input.value;
+  }
+
+  triggerEnvelope() {
+    this.envelope.triggerAttackRelease(this.envelope.release);
+  }
 
  /**filter methods
   *@see this.filter

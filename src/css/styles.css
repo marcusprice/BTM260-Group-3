@@ -4,7 +4,6 @@ h1, h2, h3, span {
 }
 
 .synth {
-  text-align: center;
   padding: 5px;
   border: solid gray 1px;
   border-radius: 5px;
@@ -14,7 +13,7 @@ h1, h2, h3, span {
   text-align: left;
   display: inline-block;
   vertical-align: top;
-  margin-right: 10px;
+  margin: 10px;
   border: solid gray 1px;
   border-radius: 5px;
   padding: 5px;
