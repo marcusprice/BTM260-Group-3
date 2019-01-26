@@ -1,8 +1,7 @@
 class Synth {
-  constructor(oscillator, envelope, filter, distortion, volume, delay, reverb) {
+  constructor(polySynth, filter, distortion, volume, delay, reverb) {
     //construct devices
-    this.oscillator = oscillator;
-    this.envelope = envelope;
+    this.polySynth = polySynth;
     this.filter = filter;
     this.distortion = distortion;
     this.volume = volume;
@@ -10,15 +9,22 @@ class Synth {
     this.reverb = reverb;
 
     //set states
-    this.oscState = false;
+    this.polySynth.set({
+      envelope: {
+        attack: .01,
+        decay: .5,
+        sustain: .8,
+        release: 1
+      }
+    });
     this.filterState = true;
     this.distortion.distortion = 0.0;
+    this.volume.volume.value = -12;
     this.delay.wet.value = .5;
     this.reverb.wet.value = .5;
 
     //chain devices
-    this.oscillator.chain(
-      this.envelope,
+    this.polySynth.chain(
       this.filter,
       this.distortion,
       this.volume,
@@ -30,33 +36,7 @@ class Synth {
 
   //oscillator methods
 
-  /**
-   *power on oscillator
-   *@function starts and stops the oscillator/sound source
-   *@return none
-   */
-  power() {
-    if(!this.oscState) {
-      //if oscillator is off, start it
-      this.oscillator.start();
-    } else {
-      //if oscillator is on, stop it
-      this.oscillator.stop();
-    }
-    //update this.oscState for next interaction
-    this.oscState = !this.oscState;
-  }
-
   //oscillator getters
-
-  /**
-   *get the current oscillator state
-   *@function gets the current oscillator state (whether it's off or on)
-   *@return true or false
-   */
-  getOscStatus() {
-    return this.oscState;
-  }
 
   /**
    *get the current oscillator frequency
@@ -64,7 +44,7 @@ class Synth {
    *@return float
    */
   getOscFreq() {
-    return this.oscillator.frequency.value;
+    return this.polySynth.frequency.value;
   }
 
   /**
@@ -73,7 +53,7 @@ class Synth {
    *@return string
    */
   getOscWaveform() {
-    return this.oscillator.type;
+    return this.polySynth.oscillator.type;
   }
 
   //oscillator setters
@@ -84,7 +64,7 @@ class Synth {
    *@return none
    */
   setOscFreq(input) {
-    this.oscillator.frequency.value = input;
+    this.polySynth.frequency.value = input;
   }
 
   /**
@@ -93,7 +73,7 @@ class Synth {
    *@return none
    */
   setOscWaveform(input) {
-    this.oscillator.type = input;
+    this.polySynth.oscillator.type = input;
   }
 
   //envelope methods
@@ -104,7 +84,7 @@ class Synth {
    *@return none
    */
   triggerEnvelope() {
-    this.envelope.triggerAttackRelease(this.envelope.release);
+    this.polySynth.envelope.triggerAttackRelease(this.polySynth.envelope.release);
   }
 
   //envelope getters
@@ -115,7 +95,7 @@ class Synth {
    *@return float
    */
   getEnvelopeAttack(input) {
-    return this.envelope.attack;
+    return this.polySynth.envelope.attack;
   }
 
   /**
@@ -124,7 +104,7 @@ class Synth {
    *@return float
    */
   getEnvelopeDecay(input) {
-    return this.envelope.decay;
+    return this.polySynth.envelope.decay;
   }
 
   /**
@@ -133,7 +113,7 @@ class Synth {
    *@return float
    */
   getEnvelopeSustain(input) {
-    return this.envelope.sustain;
+    return this.polySynth.envelope.sustain;
   }
 
   /**
@@ -142,7 +122,7 @@ class Synth {
    *@return float
    */
   getEnvelopeRelease(input) {
-    return this.envelope.release;
+    return this.polySynth.envelope.release;
   }
 
   //envelope setters
@@ -153,7 +133,7 @@ class Synth {
    *@return none
    */
   setEnvelopeAttack(input) {
-    this.envelope.attack = input;
+    this.polySynth.envelope.attack = input;
   }
 
   /**
@@ -162,7 +142,7 @@ class Synth {
    *@return none
    */
   setEnvelopeDecay(input) {
-    this.envelope.decay = input;
+    this.polySynth.envelope.decay = input;
   }
 
   /**
@@ -171,7 +151,7 @@ class Synth {
    *@return none
    */
   setEnvelopeSustain(input) {
-    this.envelope.sustain = input;
+    this.polySynth.envelope.sustain = input;
   }
 
   /**
@@ -180,7 +160,7 @@ class Synth {
    *@return none
    */
   setEnvelopeRelease(input) {
-    this.envelope.release = input;
+    this.polySynth.envelope.release = input;
   }
 
   //filter methods
