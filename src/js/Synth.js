@@ -84,7 +84,7 @@ class Synth {
    *@return none
    */
   setOscFreq(input) {
-    this.oscillator.frequency.value = input.value;
+    this.oscillator.frequency.value = input;
   }
 
   /**
@@ -93,7 +93,7 @@ class Synth {
    *@return none
    */
   setOscWaveform(input) {
-    this.oscillator.type = input.value;
+    this.oscillator.type = input;
   }
 
   //envelope methods
@@ -153,7 +153,7 @@ class Synth {
    *@return none
    */
   setEnvelopeAttack(input) {
-    this.envelope.attack = input.value;
+    this.envelope.attack = input;
   }
 
   /**
@@ -162,7 +162,7 @@ class Synth {
    *@return none
    */
   setEnvelopeDecay(input) {
-    this.envelope.decay = input.value;
+    this.envelope.decay = input;
   }
 
   /**
@@ -171,7 +171,7 @@ class Synth {
    *@return none
    */
   setEnvelopeSustain(input) {
-    this.envelope.sustain = input.value;
+    this.envelope.sustain = input;
   }
 
   /**
@@ -180,7 +180,7 @@ class Synth {
    *@return none
    */
   setEnvelopeRelease(input) {
-    this.envelope.release = input.value;
+    this.envelope.release = input;
   }
 
   //filter methods
@@ -246,7 +246,7 @@ class Synth {
    *@return none
    */
   setFilterType(input) {
-    this.filter.type = input.value;
+    this.filter.type = input;
   }
 
   /**
@@ -255,7 +255,7 @@ class Synth {
    *@return none
    */
   setCutoffFreq(input) {
-    this.filter.frequency.value = input.value;
+    this.filter.frequency.value = input;
   }
 
   /**
@@ -264,8 +264,8 @@ class Synth {
    *@return none
    */
   setQ(input) {
-    this.filter.Q.value = input.value;
-    this.filter.gain.value = Math.sqrt(input.value); //gain is set in relation to Q
+    this.filter.Q.value = input;
+    this.filter.gain.value = Math.sqrt(input); //gain is set in relation to Q
   }
 
   //delay methods
@@ -307,7 +307,7 @@ class Synth {
    *@return float
    */
   setDelayTime(input) {
-    this.delay.delayTime.value = input.value * .01;
+    this.delay.delayTime.value = input * .01;
   }
 
   /**
@@ -316,7 +316,7 @@ class Synth {
    *@return float
    */
   setDelayFeedback(input) {
-    this.delay.feedback.value = input.value * .1;
+    this.delay.feedback.value = input * .1;
   }
 
   /**
@@ -325,7 +325,7 @@ class Synth {
    *@return float
    */
   setDelayWet(input) {
-    this.delay.wet.value = input.value * .1;
+    this.delay.wet.value = input * .1;
   }
 
   //reverb methods
@@ -366,7 +366,7 @@ class Synth {
    *@function sets reverb room size
    */
   setReverbRoomSize(input) {
-    this.reverb.roomSize.value = input.value * .001;
+    this.reverb.roomSize.value = input * .001;
   }
 
   /**
@@ -374,7 +374,7 @@ class Synth {
    *@function sets reverb dampening
    */
   setReverbDampening(input) {
-    this.reverb.dampening.value = input.value;
+    this.reverb.dampening.value = input;
   }
 
   /**
@@ -382,7 +382,7 @@ class Synth {
    *@function sets wet value
    */
   setReverbWet(input) {
-    this.reverb.wet.value = input.value * .1;
+    this.reverb.wet.value = input * .1;
   }
 
    //amp methods
@@ -412,7 +412,7 @@ class Synth {
     *@function sets volume value
     */
    setVolume(input) {
-     this.volume.volume.value = input.value;
+     this.volume.volume.value = input;
    }
 
    /**
@@ -420,6 +420,6 @@ class Synth {
     *@function sets distortion value
     */
    setDistortion(input) {
-     this.distortion.distortion = input.value * .1;
+     this.distortion.distortion = input * .1;
    }
 }
