@@ -37,6 +37,6 @@ document.body.onkeydown = (key) => {
       '85': 'a#', //a# note
       '79': 'c#' //c# note (higher octave)
     };
-    synthesizer.triggerEnvelope(notes[key.keyCode] + octave.toString());
+    synthesizer.triggerEnvelope(notes[key.keyCode.toString()] + octave.toString());
   }
 };
