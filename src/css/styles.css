@@ -4,6 +4,7 @@ h1, h2, h3, span {
 }
 
 .synth {
+  display: inline-block;
   padding: 5px;
   border: solid gray 1px;
   border-radius: 5px;
