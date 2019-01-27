@@ -90,7 +90,7 @@ class Synth {
    *@return none
    */
   triggerEnvelope(notes) {
-    thie.polySynth.triggerAttackRelease(notes, this.polySynth.envelope.release);
+    this.polySynth.triggerAttackRelease(notes, '4n');
   }
 
   //envelope getters
@@ -110,7 +110,7 @@ class Synth {
    *@return float
    */
   getEnvelopeDecay(input) {
-    return this.polySynth.get('envelope.attack')['envelope']['decay'];
+    return this.polySynth.get('envelope.decay')['envelope']['decay'];
   }
 
   /**
@@ -119,7 +119,7 @@ class Synth {
    *@return float
    */
   getEnvelopeSustain(input) {
-    return this.polySynth.get('envelope.attack')['envelope']['sustain'];
+    return this.polySynth.get('envelope.sustain')['envelope']['sustain'];
   }
 
   /**
@@ -128,7 +128,7 @@ class Synth {
    *@return float
    */
   getEnvelopeRelease(input) {
-    return this.polySynth.get('envelope.attack')['envelope']['release'];
+    return this.polySynth.get('envelope.release')['envelope']['release'];
   }
 
   //envelope setters
