@@ -83,7 +83,8 @@
   <script type="text/javascript">
 
     const synthesizer = new Synth(
-      new Tone.PolySynth(10, Tone.Synth),
+      new Tone.PolySynth(4, Tone.Synth),
+      new Tone.Limiter(),
       new Tone.Filter(),
       new Tone.Distortion(),
       new Tone.Volume(),

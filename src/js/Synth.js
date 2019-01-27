@@ -1,7 +1,8 @@
 class Synth {
-  constructor(polySynth, filter, distortion, volume, delay, reverb) {
+  constructor(polySynth, limiter, filter, distortion, volume, delay, reverb) {
     //construct devices
     this.polySynth = polySynth;
+    this.limiter = limiter;
     this.filter = filter;
     this.distortion = distortion;
     this.volume = volume;
@@ -20,6 +21,7 @@ class Synth {
         release: 1
       }
     });
+    this.limiter.threshold.value = -18;
     this.filter.frequency.value = 6000.0;
     this.filter.type = 'lowpass';
     this.filter.rolloff = -48;
@@ -33,6 +35,7 @@ class Synth {
     this.polySynth.chain(
       this.filter,
       this.distortion,
+      this.limiter,
       this.volume,
       this.delay,
       this.reverb,
