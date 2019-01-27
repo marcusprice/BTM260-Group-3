@@ -11,8 +11,7 @@ class Synth {
     //set states
     this.polySynth.set({
       oscillator: {
-        type: 'sawtooth',
-        frequency: 666
+        type: 'sine'
       },
       envelope: {
         attack: .01,
@@ -80,7 +79,7 @@ class Synth {
    *@return none
    */
   setOscWaveform(input) {
-    this.polySynth.set('oscillator.type', input);    
+    this.polySynth.set('oscillator.type', input);
   }
 
   //envelope methods
@@ -90,8 +89,8 @@ class Synth {
    *@function triggers the envelope to make a sound
    *@return none
    */
-  triggerEnvelope() {
-    this.polySynth.envelope.triggerAttackRelease(this.polySynth.envelope.release);
+  triggerEnvelope(notes) {
+    thie.polySynth.triggerAttackRelease(notes, this.polySynth.envelope.release);
   }
 
   //envelope getters
@@ -102,7 +101,7 @@ class Synth {
    *@return float
    */
   getEnvelopeAttack(input) {
-    return this.polySynth.envelope.attack;
+    return this.polySynth.get('envelope.attack')['envelope']['attack'];
   }
 
   /**
@@ -111,7 +110,7 @@ class Synth {
    *@return float
    */
   getEnvelopeDecay(input) {
-    return this.polySynth.envelope.decay;
+    return this.polySynth.get('envelope.attack')['envelope']['decay'];
   }
 
   /**
@@ -120,7 +119,7 @@ class Synth {
    *@return float
    */
   getEnvelopeSustain(input) {
-    return this.polySynth.envelope.sustain;
+    return this.polySynth.get('envelope.attack')['envelope']['sustain'];
   }
 
   /**
@@ -129,7 +128,7 @@ class Synth {
    *@return float
    */
   getEnvelopeRelease(input) {
-    return this.polySynth.envelope.release;
+    return this.polySynth.get('envelope.attack')['envelope']['release'];
   }
 
   //envelope setters
@@ -140,7 +139,7 @@ class Synth {
    *@return none
    */
   setEnvelopeAttack(input) {
-    this.polySynth.envelope.attack = input;
+    this.polySynth.set('envelope.attack', input);
   }
 
   /**
@@ -149,7 +148,7 @@ class Synth {
    *@return none
    */
   setEnvelopeDecay(input) {
-    this.polySynth.envelope.decay = input;
+    this.polySynth.set('envelope.decay', input);
   }
 
   /**
@@ -158,7 +157,7 @@ class Synth {
    *@return none
    */
   setEnvelopeSustain(input) {
-    this.polySynth.envelope.sustain = input;
+    this.polySynth.set('envelope.sustain', input);
   }
 
   /**
@@ -167,7 +166,7 @@ class Synth {
    *@return none
    */
   setEnvelopeRelease(input) {
-    this.polySynth.envelope.release = input;
+    this.polySynth.set('envelope.release', input);
   }
 
   //filter methods

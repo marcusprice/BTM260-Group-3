@@ -20,8 +20,6 @@
           <option value="square">Square</option>
           <option value="triangle">Triangle</option>
         </select><br />
-        <span>Oscillator Frequency</span>
-        <input type="range" value="6000" min="50" max="6000" oninput="synthesizer.setOscFreq(this.value)" name=""><br />
       </div>
 
       <div class="synth-module">
@@ -49,7 +47,7 @@
           <option value="notch">Notch</option>
         </select><br />
         <span>Cutoff Frequency</span>
-        <input type="range" value="440" min="1" max="6000" oninput="synthesizer.setCutoffFreq(this.value)" name=""><br />
+        <input type="range" value="6000" min="1" max="6000" oninput="synthesizer.setCutoffFreq(this.value)" name=""><br />
         <span>Resonance</span>
         <input type="range" value="1" min="1" max="20" oninput="synthesizer.setQ(this.value)" name=""><br />
       </div>
