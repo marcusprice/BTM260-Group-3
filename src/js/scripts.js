@@ -1,5 +1,22 @@
 //musical typing
+let octave = 3;
+
 document.body.onkeydown = (key) => {
+  const octaveKeys = [90, 88];
+  if(octaveKeys.includes(key.keyCode)) {
+    switch(key.keyCode) {
+      case 90:
+        octave--;
+        break;
+      case 88:
+        octave++;
+        break;
+      default:
+        octave = octave;
+        break;
+    }
+  }
+
   const musicalKeys = [65, 83, 68, 70, 71, 72, 74, 75, 87, 69, 84, 89, 85, 79];
   if(musicalKeys.includes(key.keyCode)) {
     let notes = {
@@ -20,7 +37,6 @@ document.body.onkeydown = (key) => {
       '85': 'a#', //a# note
       '79': 'c#' //c# note (higher octave)
     };
-    console.log(notes[key.keyCode]);
-    synthesizer.triggerEnvelope(notes[key.keyCode] + '4');
+    synthesizer.triggerEnvelope(notes[key.keyCode.toString()] + octave.toString());
   }
 };
