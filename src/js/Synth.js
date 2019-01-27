@@ -10,6 +10,10 @@ class Synth {
 
     //set states
     this.polySynth.set({
+      oscillator: {
+        type: 'sawtooth',
+        frequency: 666
+      },
       envelope: {
         attack: .01,
         decay: .5,
@@ -17,6 +21,9 @@ class Synth {
         release: 1
       }
     });
+    this.filter.frequency.value = 6000.0;
+    this.filter.type = 'lowpass';
+    this.filter.rolloff = -48;
     this.filterState = true;
     this.distortion.distortion = 0.0;
     this.volume.volume.value = -12;
@@ -44,7 +51,7 @@ class Synth {
    *@return float
    */
   getOscFreq() {
-    return this.polySynth.frequency.value;
+    return this.polySynth.get('frequency')['frequency'];
   }
 
   /**
@@ -53,7 +60,7 @@ class Synth {
    *@return string
    */
   getOscWaveform() {
-    return this.polySynth.oscillator.type;
+    return this.polySynth.get('oscillator.type')['oscillator']['type'];
   }
 
   //oscillator setters
@@ -64,7 +71,7 @@ class Synth {
    *@return none
    */
   setOscFreq(input) {
-    this.polySynth.frequency.value = input;
+    this.polySynth.set('frequency', input);
   }
 
   /**
@@ -73,7 +80,7 @@ class Synth {
    *@return none
    */
   setOscWaveform(input) {
-    this.polySynth.oscillator.type = input;
+    this.polySynth.set('oscillator.type', input);    
   }
 
   //envelope methods

@@ -13,7 +13,6 @@
     <div class="synth">
       <div class="synth-module">
         <h2>Oscillator</h2>
-        <button type="button" name="button" onclick="synthesizer.power()">Turn on/off Synth</button> <br /> <br />
         <span>Oscillator Waveform: </span>
         <select oninput="synthesizer.setOscWaveform(this.value)" class="" name="">
           <option value="sine">Sine</option>
@@ -22,7 +21,7 @@
           <option value="triangle">Triangle</option>
         </select><br />
         <span>Oscillator Frequency</span>
-        <input type="range" value="440" min="50" max="6000" oninput="synthesizer.setOscFreq(this.value)" name=""><br />
+        <input type="range" value="6000" min="50" max="6000" oninput="synthesizer.setOscFreq(this.value)" name=""><br />
       </div>
 
       <div class="synth-module">
@@ -88,8 +87,8 @@
 
     const synthesizer = new Synth(
       new Tone.PolySynth(10, Tone.Synth),
-      new Tone.Filter(50, 'lowpass', -48),
-      new Tone.Distortion(0.0),
+      new Tone.Filter(),
+      new Tone.Distortion(),
       new Tone.Volume(),
       new Tone.PingPongDelay('4n', .2),
       new Tone.Freeverb(.5, 3000)
