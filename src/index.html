@@ -56,7 +56,7 @@
         <span>Distortion: </span>
         <input type="range" value="0" min="0" max="10" oninput="synthesizer.setDistortion(this.value)" name=""><br />
         <span>Volume: </span>
-        <input type="range" value="-12" min="-48" max="48" oninput="synthesizer.setVolume(this.value)" name=""><br />
+        <input type="range" value="-12" min="-48" max="12" oninput="synthesizer.setVolume(this.value)" name=""><br />
       </div>
 
       <div class="synth-module">
@@ -83,7 +83,7 @@
   <script type="text/javascript">
 
     const synthesizer = new Synth(
-      new Tone.PolySynth(4, Tone.Synth),
+      new Tone.PolySynth(6, Tone.Synth),
       new Tone.Limiter(),
       new Tone.Filter(),
       new Tone.Distortion(),

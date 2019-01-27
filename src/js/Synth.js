@@ -11,6 +11,7 @@ class Synth {
 
     //set states
     this.polySynth.set({
+      volume: -12,
       oscillator: {
         type: 'sine'
       },
