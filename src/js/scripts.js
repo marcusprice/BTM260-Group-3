@@ -1,5 +1,5 @@
 //musical typing
-document.body.onkeyup = (key) => {
+document.body.onkeydown = (key) => {
   const musicalKeys = [65, 83, 68, 70, 71, 72, 74, 75, 87, 69, 84, 89, 85, 79];
   if(musicalKeys.includes(key.keyCode)) {
     let notes = {
