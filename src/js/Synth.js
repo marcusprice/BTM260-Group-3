@@ -28,7 +28,7 @@ class Synth {
     this.filter.rolloff = -48;
     this.filterState = true;
     this.distortion.distortion = 0.0;
-    this.volume.volume.value = -12;
+    this.volume.volume.value = 0;
     this.delay.wet.value = .5;
     this.reverb.wet.value = .5;
 
