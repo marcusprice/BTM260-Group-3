@@ -19,7 +19,7 @@ class Synth {
         attack: .01,
         decay: .5,
         sustain: .8,
-        release: 1
+        release: .5
       }
     });
     this.limiter.threshold.value = -18;
@@ -94,7 +94,9 @@ class Synth {
    *@return none
    */
   triggerEnvelope(notes) {
-    this.polySynth.triggerAttackRelease(notes, '4n');
+    //this.polySynth.triggerAttackRelease(notes, this.getEnvelopeRelease());
+    //let release = this.getEnvelopeRelease();
+    this.polySynth.triggerAttackRelease(notes, this.getEnvelopeRelease());
   }
 
   //envelope getters
