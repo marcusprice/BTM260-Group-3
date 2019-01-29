@@ -19,7 +19,7 @@ class Synth {
         attack: .01,
         decay: .5,
         sustain: .8,
-        release: 1
+        release: .5
       }
     });
     this.limiter.threshold.value = -18;
@@ -28,7 +28,7 @@ class Synth {
     this.filter.rolloff = -48;
     this.filterState = true;
     this.distortion.distortion = 0.0;
-    this.volume.volume.value = -12;
+    this.volume.volume.value = 0;
     this.delay.wet.value = .5;
     this.reverb.wet.value = .5;
 
@@ -94,7 +94,7 @@ class Synth {
    *@return none
    */
   triggerEnvelope(notes) {
-    this.polySynth.triggerAttackRelease(notes, '4n');
+    this.polySynth.triggerAttackRelease(notes, this.getEnvelopeAttack() + this.getEnvelopeDecay());
   }
 
   //envelope getters
