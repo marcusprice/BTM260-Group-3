@@ -175,21 +175,6 @@ class Synth {
 
   //filter methods
 
-  /**
-   *turns filter on/off, sets the state accordingly
-   *@function turns filter on/off
-   *@todo: fix connect/disconnect bug
-   *@return none
-   */
-  filterOnOff() {
-    if(this.filterState) {
-      this.oscillator.disconnect(this.filter);
-    } else {
-      this.oscillator.connect(this.filter);
-    }
-    this.filterState = !this.filterState;
-  }
-
   //filter getters
 
   /**
