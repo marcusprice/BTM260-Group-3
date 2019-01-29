@@ -26,13 +26,13 @@
         <h2>Envelope</h2>
         <button type="button" name="button" onclick="synthesizer.triggerEnvelope('c7')">Trigger</button><br />
         <span>Attack: </span>
-        <input type="range" value="0.01" min="0.01" max="2.0" step=".01" oninput="synthesizer.setEnvelopeAttack(this.value)" name=""><br />
+        <input type="range" value="0.05" min="0.05" max="2.0" step=".05" oninput="synthesizer.setEnvelopeAttack(parseFloat(this.value))" name=""><br />
         <span>Decay: </span>
-        <input type="range" value=".5" min=".01" max="2.0" step=".01"  oninput="synthesizer.setEnvelopeDecay(this.value)" name=""><br />
+        <input type="range" value=".5" min=".05" max="2.0" step=".05"  oninput="synthesizer.setEnvelopeDecay(parseFloat(this.value))" name=""><br />
         <span>Sustain: </span>
-        <input type="range" value=".8" min="0.0" max="1.0" step=".05" oninput="synthesizer.setEnvelopeSustain(this.value)" name=""><br />
+        <input type="range" value=".5" min="0.05" max="1.0" step=".05" oninput="synthesizer.setEnvelopeSustain(parseFloat(this.value))" name=""><br />
         <span>Release: </span>
-        <input type="range" value=".8" min=".01" max="2.0" step=".05" onchange="synthesizer.setEnvelopeRelease(parseFloat(this.value))" name=""><br />
+        <input type="range" value=".1" min="0.05" max="2.0" step=".05" oninput="synthesizer.setEnvelopeRelease(parseFloat(this.value))" name=""><br />
       </div>
 
       <div class="synth-module">

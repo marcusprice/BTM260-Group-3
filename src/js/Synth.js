@@ -94,9 +94,7 @@ class Synth {
    *@return none
    */
   triggerEnvelope(notes) {
-    //this.polySynth.triggerAttackRelease(notes, this.getEnvelopeRelease());
-    //let release = this.getEnvelopeRelease();
-    this.polySynth.triggerAttackRelease(notes, this.getEnvelopeRelease());
+    this.polySynth.triggerAttackRelease(notes, this.getEnvelopeAttack() + this.getEnvelopeDecay());
   }
 
   //envelope getters
