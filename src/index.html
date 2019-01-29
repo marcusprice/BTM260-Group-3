@@ -44,6 +44,13 @@
           <option value="bandpass">Bandpass</option>
           <option value="notch">Notch</option>
         </select><br />
+        <span>Rolloff: </span>
+        <select oninput="synthesizer.setFilterRolloff(parseInt(this.value))" class="" name="">
+          <option value="-12">-12</option>
+          <option value="-24">-24</option>
+          <option selected="selected" value="-48">-48</option>
+          <option value="-96">-96</option>
+        </select><br />
         <span>Cutoff Frequency</span>
         <input type="range" value="6000" min="1" max="6000" oninput="synthesizer.setCutoffFreq(this.value)" name=""><br />
         <span>Resonance</span>
