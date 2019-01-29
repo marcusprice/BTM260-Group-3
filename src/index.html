@@ -37,14 +37,19 @@
 
       <div class="synth-module">
         <h2>Filter</h2>
-
-        <button type="button" name="button" onclick="synthesizer.filterOnOff()">Turn on/off Filter</button><br /><br />
         <span>Filter Type: </span>
         <select oninput="synthesizer.setFilterType(this.value)" class="" name="">
           <option value="lowpass">Lowpass</option>
           <option value="highpass">Highpass</option>
           <option value="bandpass">Bandpass</option>
           <option value="notch">Notch</option>
+        </select><br />
+        <span>Rolloff: </span>
+        <select oninput="synthesizer.setFilterRolloff(parseInt(this.value))" class="" name="">
+          <option value="-12">-12</option>
+          <option value="-24">-24</option>
+          <option selected="selected" value="-48">-48</option>
+          <option value="-96">-96</option>
         </select><br />
         <span>Cutoff Frequency</span>
         <input type="range" value="6000" min="1" max="6000" oninput="synthesizer.setCutoffFreq(this.value)" name=""><br />

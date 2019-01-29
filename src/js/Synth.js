@@ -175,31 +175,7 @@ class Synth {
 
   //filter methods
 
-  /**
-   *turns filter on/off, sets the state accordingly
-   *@function turns filter on/off
-   *@todo: fix connect/disconnect bug
-   *@return none
-   */
-  filterOnOff() {
-    if(this.filterState) {
-      this.oscillator.disconnect(this.filter);
-    } else {
-      this.oscillator.connect(this.filter);
-    }
-    this.filterState = !this.filterState;
-  }
-
   //filter getters
-
-  /**
-   *get the current filter state
-   *@function returns the current filter state
-   *@return true/false
-   */
-  getFilterState() {
-    return this.filterState;
-  }
 
   /**
    *get the current filter type
@@ -208,6 +184,15 @@ class Synth {
    */
   getFilterType() {
     return this.filter.type;
+  }
+
+  /**
+   *get the current filter rolloff
+   *@function returns the current filter rolloff
+   *@return int
+   */
+  getFilterRolloff() {
+    return this.filter.rolloff;
   }
 
   /**
@@ -237,6 +222,15 @@ class Synth {
    */
   setFilterType(input) {
     this.filter.type = input;
+  }
+
+  /**
+   *sets the filter rolloff
+   *@function sets the filter rolloff
+   *@return none
+   */
+  setFilterRolloff(input) {
+    this.filter.rolloff = input;
   }
 
   /**
