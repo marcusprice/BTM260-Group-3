@@ -2,6 +2,7 @@
 let octave = 3;//global variable to keep track of octave
 
 document.body.onkeydown = (key) => {
+  //octave key control
   const octaveKeys = [90, 88]; //keys to change octave down & up
   if(octaveKeys.includes(key.keyCode)) {
     switch(key.keyCode) {
@@ -19,6 +20,7 @@ document.body.onkeydown = (key) => {
     }
   }
 
+  //musical key control
   const musicalKeys = [65, 83, 68, 70, 71, 72, 74, 75, 87, 69, 84, 89, 85, 79];
   if(musicalKeys.includes(key.keyCode)) {
     let octaveShift = 0; //shifts octave up if higher key is pressed
