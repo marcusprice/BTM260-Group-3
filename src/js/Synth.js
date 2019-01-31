@@ -1,5 +1,5 @@
 class Synth {
-  constructor(polySynth, limiter, filter, distortion, volume, delay, reverb) {
+  constructor(polySynth = new Tone.PolySynth(6, Tone.Synth), limiter = new Tone.Limiter(), filter = new Tone.Filter(), distortion = new Tone.Distortion(), volume = new Tone.Volume(), delay = new Tone.PingPongDelay('4n', .2), reverb = new Tone.Freeverb(.5, 3000)) {
     //construct devices
     this.polySynth = polySynth;
     this.limiter = limiter;
@@ -94,7 +94,11 @@ class Synth {
    *@return none
    */
   triggerEnvelope(notes) {
-    this.polySynth.triggerAttackRelease(notes, this.getEnvelopeAttack() + this.getEnvelopeDecay());
+    //split the notes up (in case there is a group of notes for a chord)
+    console.log(notes);
+    notes = notes.split(' ');
+    console.log(notes);
+    this.polySynth.triggerAttackRelease(notes,  this.getEnvelopeAttack() + this.getEnvelopeDecay())
   }
 
   //envelope getters

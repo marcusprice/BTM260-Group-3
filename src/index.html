@@ -86,15 +86,7 @@
     </div>
   </body>
   <script type="text/javascript">
-    const synthesizer = new Synth(
-      new Tone.PolySynth(6, Tone.Synth),
-      new Tone.Limiter(),
-      new Tone.Filter(),
-      new Tone.Distortion(),
-      new Tone.Volume(),
-      new Tone.PingPongDelay('4n', .2),
-      new Tone.Freeverb(.5, 3000)
-    );
+  const synthesizer = new Synth();
   </script>
   <script src="./js/scripts.js" charset="utf-8"></script>
 </html>
