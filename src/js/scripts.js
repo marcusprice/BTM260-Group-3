@@ -50,3 +50,23 @@ document.body.onkeydown = (key) => {
     synthesizer.triggerEnvelope(notes[key.keyCode.toString()] + (octave + octaveShift).toString());
   }
 };
+
+//transport conrols
+
+/**
+ *changeTransportTempo
+ *@function changes tempo/bpm
+ *@input float between 0 & 999.9
+ */
+let changeTransportTempo = (tempo) => {
+  Tone.Transport.bpm.value = tempo;
+}
+
+/**
+ *changeTransportTimeSig
+ *@function changes the global time signature
+ *@input int for common time (i.e. 4 = 4/4), array for complex (i.e. [5,4] = 5/4)
+ */
+let changeTransportTimeSig = (timeSig) => {
+  Tone.Transport.timeSignature = timeSig;
+}
