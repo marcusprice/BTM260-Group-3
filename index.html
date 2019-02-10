@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <script src="js/Tone.js" charset="utf-8"></script>
+    <script src="js/Synth.js" charset="utf-8"></script>
+    <meta charset="utf-8">
+    <title>Music App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,400,700|Playfair+Display:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/b0a6ebd64a.js"></script>
+
+  </head>
+
+  <body>
+    <div id="wrapper">  
+       <header>  
+        <h1><a href=""><span id="header-line">||</span> Music App</a></h1>
+        
+        <div id="heading-nav">
+          <button id="how-to-play-button" class="heading-nav-items">How to Play <i class="fa fa-ellipsis-h more-icon"></i></button> 
+            
+          <button id="glossary-button" class="heading-nav-items">Glossary <i class="fa fa-ellipsis-h more-icon"></i></button> 
+            
+          <button id="about-button" class="heading-nav-items">About <i class="fa fa-ellipsis-h more-icon"></i></button>  
+        </div>
+      </header>
+     
+    <div class="content">
+      <div id="sequencer-element">
+      </div><!-- end sequencer element --> 
+
+      <div class="tab">
+        <button class="tab-links" onclick="openInstrument(event, 'synth-element')" id="defaultOpen">Synthesizer</button>
+        <button class="tab-links" onclick="openInstrument(event, 'drum-machine-element')">Drum Machine</button>
+      </div><!-- end tabs -->
+        
+      <div id="synth-element" class="instrument-element">
+        
+        <div id="oscillator-element" class="effects-element">
+          <div id="oscillator-icon-element" class="music-icon-element">
+            <img src="img/placeholder-icon.png" class="music-icon">
+            <h3>Oscillator</h3>
+          </div> 
+          <div id="oscillator-control-element" class="music-control-element">
+            <ul id="oscillator-waveform-element">
+              <li><img src="img/waveform.png" alt="waveform"></li>
+              <li><img src="img/waveform.png" alt="waveform"></li>
+              <li><img src="img/waveform.png" alt="waveform"></li>
+              <li><img src="img/waveform.png" alt="waveform"></li>
+            </ul>
+          </div>
+        </div>  <!-- end oscillator -->
+          
+        <div id="envelope-element" class="effects-element">
+          <div id="envelope-icon-element" class="music-icon-element">
+            <img src="img/placeholder-icon.png" class="music-icon">
+            <h3>Envelope</h3>
+          </div> 
+          <div id="envelope-control-element" class="music-control-element">
+            <div id="envelope-attack-element" class="envelope-input-box">
+              <input type="range" value="0.05" min="0.05" max="2.0" step=".05" oninput="synthesizer.setEnvelopeAttack(parseFloat(this.value))" name="" class="envelope-input">
+              <h4>Attack</h4>
+            </div> 
+            <div id="envelope-sustain-element" class="envelope-input-box">
+              <input type="range" value=".5" min="0.05" max="1.0" step=".05" oninput="synthesizer.setEnvelopeSustain(parseFloat(this.value))" name="" class="envelope-input">
+              <h4>Sustain</h4>
+            </div>
+             <div id="envelope-decay-element" class="envelope-input-box">
+              <input type="range" value=".5" min=".05" max="2.0" step=".05"  oninput="synthesizer.setEnvelopeDecay(parseFloat(this.value))" name="" class="envelope-input">
+              <h4>Decay</h4>
+            </div>
+            <div id="envelope-release-element" class="envelope-input-box">
+              <input type="range" value=".1" min="0.05" max="2.0" step=".05" oninput="synthesizer.setEnvelopeRelease(parseFloat(this.value))" name="" class="envelope-input">
+              <h4>Release</h4>
+            </div>
+          </div>
+        </div>  <!-- end envelope -->
+          
+        <div id="filter-element" class="effects-element">
+          <div id="filter-icon-element" class="music-icon-element">
+            <img src="img/placeholder-icon.png" class="music-icon">
+            <h3>Filter</h3>
+          </div> 
+          <div id="filter-control-element" class="music-control-element">
+            <div id="filter-input-element">  
+              <div id="filter-cutofffreq-element" class="filter-input-box">    
+                <input type="range" value="6000" min="1" max="6000" oninput="synthesizer.setCutoffFreq(this.value)" name="" class="filter-input"><br>  
+                <h4>Cutoff Frequency</h4>
+              </div>
+              <div id="filter-resonance-element" class="filter-input-box">
+                <input type="range" value="1" min="1" max="20" oninput="synthesizer.setQ(this.value)" name="" class="filter-input"> <br> 
+                <h4>Resonance</h4>
+              </div>
+            </div>
+            <div id="filter-select-element">      
+              <div id="filter-type-element" class="filter-list-box">
+                <select oninput="synthesizer.setFilterType(this.value)" class="" name="">
+                  <option value="lowpass">Lowpass</option>
+                  <option value="highpass">Highpass</option>
+                  <option value="bandpass">Bandpass</option>
+                  <option value="notch">Notch</option>
+                </select><br>
+                <h4>Filter Type</h4>
+              </div>
+              <div id="filter-rolloff-element" class="filter-list-box">
+                <select oninput="synthesizer.setFilterRolloff(parseInt(this.value))" class="" name="">
+                  <option value="-12">-12</option>
+                  <option value="-24">-24</option>
+                  <option selected="selected" value="-48">-48</option>
+                  <option value="-96">-96</option>
+                </select><br>
+                <h4>Rolloff</h4>
+              </div>              
+            </div>  
+          </div>
+        </div>  <!-- end filter -->      
+             
+        <div id="amplifier-element" class="effects-element">
+          <div id="amplifier-icon-element" class="music-icon-element">
+            <img src="img/placeholder-icon.png" class="music-icon">
+            <h3>Amplifier</h3>
+          </div> 
+          <div id="amplifier-control-element" class="music-control-element">
+            <div id="amplifier-distortion-element">
+              <input type="range" value="0" min="0" max="10" oninput="synthesizer.setDistortion(this.value)" name="" class="amplifier-input"><br>
+              <h4>Distortion</h4>
+            </div>
+            <div id="amplifier-volume-element">
+              <input type="range" value="0" min="-48" max="12" oninput="synthesizer.setVolume(this.value)" name="" class="amplifier-input"><br>
+              <h4>Volume</h4>
+            </div>
+          </div>
+        </div>  <!-- end amplfier -->  
+          
+        <div id="syntheffects-element" class="effects-element">
+          <div id="syntheffects-icon-element" class="music-icon-element">
+            <img src="img/placeholder-icon.png" class="music-icon">
+            <h3>Effects</h3>
+          </div> 
+          <div id="syntheffects-name-element">
+            <br><br>
+            <h5>Delay</h5>
+            <br><br>
+            <h5>Reverb</h5>
+          </div>
+          <div id="syntheffects-control-element" class="music-control-element">
+            <div id="syntheffects-delay-element">
+              <div id="syntheffects-time-element">
+                <input type="range" value="440" min="1" max="1000" oninput="synthesizer.setDelayTime(this.value)" name="" class="syntheffects-input"><br>
+                <h4>Time</h4>
+              </div>
+              <div id="syntheffects-feedback-element">
+                <input type="range" value="2" min="1" max="9" oninput="synthesizer.setDelayFeedback(this.value)" name="" class="syntheffects-input"><br>
+                <h4>Feedback</h4>
+              </div>
+              <div id="syntheffects-delaydrywet-element">
+                <input type="range" value="5" min="0" max="10" oninput="synthesizer.setDelayWet(this.value)" name="" class="syntheffects-input"><br>
+                <h4>Dry/Wet</h4>
+              </div>
+            </div>  
+            <div id="syntheffects-reverb-element">
+                <div id="syntheffects-roomsize-element">
+                <input type="range" value="500" min="1" max="950" oninput="synthesizer.setReverbRoomSize(this.value)" name="" class="syntheffects-input"><br>
+                <h4>Room Size</h4>
+              </div>
+              <div id="syntheffects-dampening-element">
+                <input type="range" value="3000" min="1" max="6000" oninput="synthesizer.setReverbDampening(this.value)" name="" class="syntheffects-input"><br>
+                <h4>Dampening</h4>
+              </div>
+              <div id="syntheffects-reverbdrywet-element">
+                <input type="range" value="5" min="0" max="10" oninput="synthesizer.setReverbWet(this.value)" name="" class="syntheffects-input"><br>
+                <h4>Dry/Wet</h4>
+              </div>
+            </div>
+          </div>
+        </div>  <!-- end synth effects --> 
+          
+            
+      </div><!-- end synth element -->
+
+    </div> <!-- end content -->
+      
+     <footer id="footer">
+        <div id="footer-music-buttons">
+          <button class="music-buttons" id="music-button-save"><i class="fas fa-save"></i></button>
+          <button class="music-buttons" id="music-button-reset"><i class="fas fa-fast-backward"></i></button> 
+            
+          <button type="button" name="button" onclick="synthesizer.triggerEnvelope('c7')" class="music-buttons" id="music-button-play"><i class="fas fa-play"></i></button>
+            
+          <button class="music-buttons" id="music-button-tempo"><i class="fas fa-clock"></i></button>
+          <button class="music-buttons" id="music-button-time-signature"><i class="fas fa-sort-numeric-up"></i></button>
+        </div>
+      </footer> 
+      
+      </div><!-- end wrapper -->
+      
+      <!-- hidden page elements - triggered by JS click event -->
+    
+    <!-- "how to play" -->  
+    <div id="how-to-play-content">
+      <span id="hide-how-to-play"><a href="" class="close-button">&times;</a></span>
+      <h2>How to use this app</h2>
+      <p>Etiam eros erat, ornare id turpis in, mollis rutrum dolor. In viverra ultricies enim sed imperdiet. Curabitur bibendum gravida facilisis. Curabitur ut leo risus. Vivamus quam sem, venenatis sit amet elementum vitae, posuere ut leo.</p>
+      <img src="img/simple-keyboard.svg" alt="keyboard displaying keys for synthesizer control" id="keyboard-translation">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum auctor dui non vestibulum. Etiam ac neque vel libero placerat porttitor at nec ipsum. Nullam pulvinar sagittis convallis. Sed finibus leo id massa consequat, quis aliquet nulla molestie. Nunc tempus nunc vitae lacus tempus aliquam. Ut non faucibus felis. Pellentesque ut justo aliquam, tempus mi imperdiet, hendrerit leo. Praesent lobortis a quam in pulvinar. Quisque nec neque in ipsum hendrerit interdum quis vel odio. Sed nec suscipit purus. Quisque in molestie lectus.</p>
+    </div>
+      
+    <!-- glossary -->  
+    <div id="glossary-content">
+      <span id="hide-glossay"><a href="" class="close-button">&times;</a></span>
+      <h2>Glossary of terms</h2>
+      <div id="glossary-amplifier" class="glossary-term">
+        <h3>Amplifier</h3>
+        <p class="glossary">The <em>amplifier</em> features a tool for distorting the incoming signal as well as controlling the overall volume of the outgoing signal. Simply said, it allows you to control how loud or quiet the sound is before it’s routed to the effects.</p>
+      </div>
+        
+      <div id="glossary-attack" class="glossary-term">    
+        <h3>Attack</h3>
+        <p class="glossary"><em>Attack</em> is the first parameter of the envelope and controls how the envelope will fade in. With it you can have a sharp instantaneous hits to emulate something percussive, or slow fade ins to emulate something of a bowed instrument.</p>
+      </div>
+        
+      <div id="glossary-decay-effect" class="glossary-term">    
+        <h3>Decay (effect)</h3>
+        <p class="glossary">Delays repeat the incoming signal a number of times which can be set by adjusting the feedback parameter. The timing of the delay can also be adjusted with the “delay time” which alters the length in time between repetitions.</p>
+      </div>
+        
+      <div id="glossary-decay-time" class="glossary-term">    
+        <h3>Decay (time value)</h3>
+        <p class="glossary"><em>Decay</em> is the amount of time it takes for the volume level to change from the peak amplitude value to the sustaining amplitude value (which is set with the sustain parameter). Having a fast decay time can contribute to a pronounced hit, whereas a slower decay time can contribute to a longer movement of sound.</p>
+      </div>
+        
+      <div id="glossary-envelope" class="glossary-term">
+        <h3>Envelope</h3>
+        <p class="glossary">This tool lets you shape the sound from the oscillator by applying an amplitude envelope to the incoming signal. Rather than producing a continuous tone, envelopes allow you to add characteristics by shaping the amplitude of the sound, which can be helpful for emulating real life instruments and allow for timed sequences. The envelope is controlled with 4 parameters: <a href="#glossary-attack">attack (time value)</a>, <a href="#glossary-decay-time">decay (time value)</a>, <a href="#glossary-sustain">sustain (amplitude level)</a>, and <a href="#glossary-release">release (time value)</a>.</p>
+      </div>
+        
+      <div id="glossary-filter" class="glossary-term">
+        <h3>Filter</h3>
+        <p class="glossary">With exception to sine waves, most waveforms produced from the oscillator generate a plethora of harmonic content which can be attenuated with filters in a method called subtractive synthesis. A favorable effect can be reached by removing harmonics out of the frequency spectrum, which is controlled by a cutoff frequency. The rolloff of the filter controls how pronounced the filtered sound is by controlling the steepness of the frequency cutoff. Resonance is another tool that can be used to boost the amplitude of frequency at the cutoff point, also allowing for a more pronounced effect.</p>
+      </div>
+        
+      <div id="glossary-release" class="glossary-term">
+        <h3>Release</h3>
+        <p class="glossary">Release is the amount of time that the sustaining amplitude level will last before the triggered audio event is over. Shorter release times lend themselves well to percussive type sounds while longer release times are nice for longer more pronounced sound movements.</p>
+      </div>
+        
+      <div id="glossary-sustain" class="glossary-term">
+        <h3>Sustain</h3>
+        <p class="glossary">Unlike the other 3 values, <em>sustain</em> is the amplitude value that remains until the envelope ends (which is controlled with release).</p>
+      </div>
+        
+      <div id="glossary-oscillator" class="glossary-term">    
+        <h3>Oscillator</h3>
+        <p class="glossary">This is the source of the sound of this synthesizer. Oscillators generate a continuous, oscillating electronic signal that results in an audible tone (due to molecular vibrations from signal). The oscillator’s frequency can be adjusted which will result in different pitches or musical notes of the audible tone. In addition to the frequency, the waveform can be adjusted which effects the timbre of the sound.</p>
+      </div>
+        
+      <div id="glossary-effects" class="glossary-term">
+        <h3>Effects</h3>
+        <p class="glossary">Effects can be added to the output of the signal which adds a lot of characteristics to the overall sound. While the amount of effects available are endless, this instrument provides two of the most popular: delay & reverb. The mix between the non-affected and effected sound can be adjusted with the dry/wet mix (dry being the dry, non-affected sound and wet being the affected sound).</p>
+      </div>
+        
+      <div id="glossary-sustain" class="glossary-term">
+        <h3>Sustain</h3>
+        <p class="glossary">Unlike the other 3 values, <em>sustain</em> is the amplitude value that remains until the envelope ends (which is controlled with release).</p>
+      </div>
+        
+      <div id="glossary-reverb" class="glossary-term">
+        <h3>Reverb</h3>
+        <p class="glossary">Reverb adds spaciousness by making the incoming signal sound like it’s in a room (where the sound reflects off walls). This effect can be used to emulate large churches and performance halls as well as tiny spaces.</p>
+      </div>
+        
+      
+    </div>
+        
+      <script type="text/javascript">
+        const synthesizer = new Synth();
+      </script>
+      <script src="js/music-scripts.js" charset="utf-8"></script>
+      <script src="js/ui-scripts.js" charset="utf-8"></script>
+  </body>
+</html>

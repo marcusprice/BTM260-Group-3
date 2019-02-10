@@ -1,0 +1,533 @@
+/* 02-07-2019  to-do
+
+    - fix boxes so they don't break
+    - range bars: change bg color based on thumb location
+    - filter dropdown box styling
+    - add all graphical elements
+    - add margin to bottom of content so footer doesn't hide content
+    - check filter type section
+    - oscillator: need to change from dropdown select to buttons
+    - play button: don't automatically start a tone
+    - create 'about' page
+    - add actual content to all extra pages
+    - fix tab styling
+    - typography
+    - glossary: fix bottom margin so page doesn't break
+
+*/
+
+
+
+/***** NEW STYLES FOR 02-07-2019 PROJECT *****/
+
+/* overall styles */
+
+h4 {
+    color: #676767;
+    font-size: 20px;
+}
+
+.music-icon-element {
+    float: left;
+    width: 12%;
+    height: 100%;
+    padding: 1% 1% 1% 2%;
+}
+
+.music-control-element {
+    float: right;
+    width: 83%;
+    height: 100%;
+    padding: 1%;
+}
+
+.effects-element h3 {
+    color: #676767;
+    padding-top: 5px;
+}
+
+
+/* oscillator */
+
+#oscillator-element {
+    background-color: #fff;
+    height: 150px;
+}
+
+#oscillator-waveform-element li {
+    float: left;
+    width: 25%;
+}
+
+#oscillator-waveform-element li img {
+    max-width: 300px;
+}
+
+
+/* envelope */
+
+#envelope-element {
+    height: 400px;
+    background-color: #eee;
+}
+
+.envelope-input-box {
+    width: 46%;
+    height: 100px;
+    padding: 1%;
+}
+
+.envelope-input-box h4 {
+    margin-top: 15px;
+}
+
+#envelope-attack-element, #envelope-decay-element {
+    float: left;
+}
+
+#envelope-sustain-element, #envelope-release-element {
+    float: right;
+}
+
+.envelope-input {
+    -webkit-appearance: none;
+    width: 90%;
+    background: #676767;
+    height: 10px;
+    outline: none;
+}
+
+.envelope-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 15%; 
+    border: 1px solid #fff;
+    background: #2AD6A0;
+    cursor: pointer;
+}
+
+
+/* filter */
+
+#filter-element {
+    background-color: #fff;
+    height: 200px;
+}
+
+#filter-icon-element, #filter-control-element {
+    margin-top: -40px;
+}
+
+#filter-input-element {
+    float: left;
+    width: 65%;
+    height: 160px;
+}
+
+#filter-cutofffreq-element {
+    width: 40%;
+    float: left;
+}
+
+#filter-resonance-element {
+    width: 40%;
+    float: right;
+}
+
+.filter-input {
+    -webkit-appearance: none;
+    width: 90%;
+    background: #676767;
+    height: 10px;
+    outline: none;
+    float: left;
+}
+
+.filter-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 15%; 
+    border: 1px solid #fff;
+    background: #2AD6A0;
+    cursor: pointer;
+}
+
+#filter-select-element {
+    float: right;
+    width: 30%;
+}
+
+#filter-type-element {
+    width: 40%;
+    float: left;
+}
+
+#filter-rolloff-element {
+    width: 40%;
+    float: right;
+}
+
+
+/* amplifier */
+
+#amplifier-element {
+    background-color: #eee;
+    height: 150px;
+}
+
+#amplifier-icon-element, #amplifier-control-element {
+    margin-top: -70px;
+}
+
+.amplifier-input {
+    -webkit-appearance: none;
+    width: 90%;
+    background: #676767;
+    height: 10px;
+    outline: none;
+    float: left;
+}
+
+.amplifier-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 15%; 
+    border: 1px solid #fff;
+    background: #2AD6A0;
+    cursor: pointer;
+}
+
+#amplifier-distortion-element {
+    float: left;
+    width: 50%;
+    margin-top: 20px;
+}
+
+#amplifier-volume-element {
+    float: right;
+    width: 50%;
+    margin-top: 20px;
+}
+
+
+/* effects */
+
+#syntheffects-element {
+    background-color: #fff;
+    height: 300px;
+}
+
+#syntheffects-icon-element {
+    width: 7%;
+    margin-top: -42px;
+}
+
+#syntheffects-name-element {
+    width: 7%;
+    margin-left: 10%;
+}
+
+#syntheffects-name-element h5 {
+    font-size: 20px;
+}
+
+#syntheffects-control-element {
+    width: 81%;
+    margin-top: -142px;
+}
+
+.syntheffects-input {
+    -webkit-appearance: none;
+    width: 80%;
+    background: #676767;
+    height: 10px;
+    outline: none;
+    float: left;
+}
+
+.syntheffects-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 15%; 
+    border: 1px solid #fff;
+    background: #2AD6A0;
+    cursor: pointer;
+}
+
+#syntheffects-time-element, #syntheffects-feedback-element {
+    float: left;
+    width: 33.3%;
+}
+
+#syntheffects-delaydrywet-element {
+    float: right;
+    width: 33.3%;
+}
+
+#syntheffects-reverb-element {
+    margin-top: 100px;
+}
+
+#syntheffects-roomsize-element, #syntheffects-dampening-element {
+    float: left;
+    width: 33.3%;
+}
+
+#syntheffects-reverbdrywet-element {
+    float: right;
+    width: 33.3%;
+}
+
+
+
+
+
+
+/***** OVERALL STYLES/TYPOGRAPHY *****/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #2AD6A0;
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+h1, h1 a {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #676767;
+    padding: 20px;
+    text-decoration: none;
+}
+
+
+/***** HEADER STYLES *****/
+
+header {
+    z-index: 1;
+    background-color: #fff;
+    height: 100px;
+}
+
+#header-line {
+    color: #2AD6A0;
+}
+
+#heading-nav {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+button.heading-nav-items {
+    font-size: 120%;
+    font-weight: 400;
+    color: #2AD6A0;
+    background-color: #fff;
+    border: 2px solid #2AD6A0;
+    border-radius: 15px;
+    height: 40px;
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+    padding: 15px 25px 40px 45px;
+}
+
+.heading-nav-items:hover {
+    background-color: #effeff;
+}
+
+.more-icon {
+    color: #676767;
+    padding: 5px;
+}
+
+
+/***** INFORMATIONAL PAGE STYLES *****/
+.show-page {
+}
+
+#how-to-play-content, #glossary-content {
+    z-index: 1000;
+    position: fixed;
+    overflow: scroll;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 92%;
+    background: radial-gradient(rgba(230, 230, 230, .95), rgba(166, 166, 166, .95));
+    padding: 4%;
+    font-size: 20px;
+    color: #676767;
+}
+
+#keyboard-translation {
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 3% 0;
+}
+
+.glossary {
+    padding-bottom: 2%;
+}
+
+#glossary-content h2 {
+    padding: 3%;
+    text-align: center;
+}
+
+.glossary-term a {
+    color: #343434;
+    text-decoration: none;   
+}
+
+.glossary-term a:hover {
+    text-decoration: underline;
+}
+
+.close-button {
+    position: absolute;
+    right: 20%;
+    top: 5%;
+    font-size: 70px;
+    text-decoration: none;
+    color: #676767;
+}
+
+.close-button:hover {
+    color: #2AD6A0;
+    text-decoration: none;
+}
+
+
+/***** INSTRUMENT TAB STYLES *****/
+
+.tab {
+    overflow: hidden;
+    background-color: #fff;
+    font-size: 0;
+}
+
+.tab button {
+    background-color: #fff;
+    border: 1px solid #676767;
+    padding: 10px 30px 10px 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #676767;
+    cursor: pointer;
+    transition: 0.3s;
+    height: 60px;
+}
+
+.tab button:hover {
+    background-color: #eee;
+}
+
+.tab button.active {
+    background-color: #2AD6A0;
+    cursor: default;
+}
+
+/*.instrument-element {
+    display: none;
+}*/
+
+#synth-element {
+    background: repeating-linear-gradient(45deg, #eee, #fff 10px, #fff 10px, #eee 20px);
+    border: 2px solid #676767;
+    height: 800px;
+}
+
+#drum-machine-element {
+    background: repeating-linear-gradient(145deg, #fff, #eee 10px, #eee 10px, #fff 20px);
+    border: 2px solid #676767;
+    height: 500px;
+}
+
+
+/***** SEQUENCER STYLES *****/
+#sequencer-element {
+    background-color: #eee;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 40px;
+}
+
+
+/***** FOOTER STYLES *****/
+#footer {
+    height: 100px;
+    width: 100%;
+    margin-top: 140px;
+    background-color: #eee;
+    border-top: 1px solid #676767;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#footer-music-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.music-buttons {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 20px 20px 0 20px;
+}
+
+.music-buttons:nth-child(1) {
+    padding-left: 60px;
+}
+
+.music-buttons:nth-child(5) {
+    padding-right: 60px;
+}
+
+#music-button-play {
+    font-size: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
