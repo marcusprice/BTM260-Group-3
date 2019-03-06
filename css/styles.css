@@ -1,0 +1,632 @@
+/* styles for 2019-02-20 project */
+
+
+/*** overall page styles ***/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 100%;
+    background-color: #eee;
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#content {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 67px;
+}
+
+
+
+/*** typography ***/
+
+h1, h1 a {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #676767;
+    text-decoration: none;
+    padding: 1%;
+}
+
+h3, h4 {
+    color: #676767;
+}
+
+.green {
+    color: #2AD6A0;
+}
+
+.pink {
+    color: #e368c5;
+}
+
+
+/*** header styles ***/
+
+header {
+    z-index: 1;
+    background: #fff;
+    height: 75px;
+}
+
+#heading-nav {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+button.heading-nav-items {
+    font-size: 14px;
+    font-weight: 400;
+    color: #676767;
+    background-color: #fff;
+    border: 1.5px solid #676767;
+    border-radius: 8px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-left: 13px;
+    cursor: pointer;
+    padding: 0 15px 5px 15px;
+}
+
+.heading-nav-items:hover {
+    background: #effeff;
+}
+
+
+
+/*** sequencer styles ***/
+
+#sequencer-element {
+    height: auto;
+    background: #eee;
+}
+
+#sequencer-title-element {
+    float: left;
+    width: 7%;
+    height: 100%;
+}
+
+#sequencer-instrumentnames {
+    float: left;
+    width: 7%;
+    height: 100%;
+}
+
+#sequencer-control-element {
+    display: inline-block;
+    width: 80%;
+}
+
+#sequencer-icons {
+    float: right;
+    width: 10%;
+    height: 100%;
+}
+
+#sequencer-instrumentnames {
+    color: #2AD6A0;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.space {
+    height: 330px;
+}
+
+
+/*** keyboard sequencer ***/
+#keyboard-sequencer {
+    height: 100%;
+    width: 100%;
+    margin: 30px 0 0 2%;
+    background-color: #eee;
+}
+
+#keyboard-sequencer > div {
+    height: 40px;
+}
+
+#keyboard-sequencer > .keyboard-sharp {
+    height: 27px;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-sizing: border-box;
+    width: 6%;
+    height: 100%;
+    cursor: pointer;
+    background: #fff;
+    border: 2px solid #eee;
+    margin-left: -4px;
+}
+
+input[type="checkbox"]:hover {
+  background: #2AD6A0;
+}
+
+input[type="checkbox"]:checked {
+    background: #2AD6A0;
+}
+
+.keyboard-note-label {
+    display: block;
+    float: right;
+    margin-top: 7px;
+    margin-right: 6.5%;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.keyboard-sharp > span {
+    margin-top: 5px;
+    margin-right: 6%;
+}
+
+
+/*** drum sequencer ***/
+#drum-sequencer-construction {
+    background: #e368c5;
+    position: relative;
+    top: 100px;
+    left: 25%;
+    -ms-transform: rotate(15deg); /* IE 9 */
+    -webkit-transform: rotate(15deg); /* Safari 3-8 */
+    transform: rotate(15deg);
+    width: 35%;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+#drum-sequencer {
+    height: 100%;
+    width: 100%;
+    margin: 30px 0 50px 2%;
+    background-color: #eee;
+}
+
+#drum-sequencer > div {
+    height: 40px;
+}
+
+.drum-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-sizing: border-box;
+    width: 6%;
+    height: 100%;
+    cursor: pointer;
+    background: #fff;
+    border: 2px solid #eee;
+    margin-left: -4px;
+}
+
+#drum-kick > input[type="checkbox"]:hover,
+#drum-snare > input[type="checkbox"]:hover,
+#drum-timpani > input[type="checkbox"]:hover,
+#drum-cymbal > input[type="checkbox"]:hover,
+#drum-kick > input[type="checkbox"]:checked,
+#drum-snare > input[type="checkbox"]:checked,
+#drum-timpani > input[type="checkbox"]:checked,
+#drum-cymbal > input[type="checkbox"]:checked {
+    background: #e368c5;
+}
+
+.drum-note-label {
+    display: block;
+    float: right;
+    margin-top: 7px;
+    margin-right: 6%;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+
+/*** tab styles ***/
+
+#tab {
+    overflow: hidden;
+    background: #eee;
+    margin-bottom: -2px;
+    z-index: 1000;
+}
+
+#tab button {
+    background: #2AD6A0;
+    border: 1.5px solid #2AD6A0;
+    border-left: none;
+    border-bottom: 1.5px solid #000;
+    height: 33px;
+    line-height: 33px;
+    padding: 0 20px 0 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#tab button:hover {
+    background: #eee;
+}
+
+#tab button.active {
+    background: #fff;
+    color: #2AD6A0;
+    border: 1.5px solid #000;
+    border-bottom: 2px solid #fff;
+    cursor: default;
+}
+
+
+
+/*** oscillator styles ***/
+#oscillator-element {
+    background: #fff;
+    height: 80px;
+}
+
+#oscillator-waveform-element {
+    list-style-type: none;
+    padding-top: 18px;
+}
+
+#oscillator-waveform-element li {
+    float: left;
+    width: 25%;
+    padding-left: 4%;
+}
+
+
+
+#oscillator-waveform-element input[type="checkbox"]{
+    display: none;
+}
+
+input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 210px;
+    height: 70px;
+    background: url(../img/waveform.png) left top no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+input[type="checkbox"]:checked + label span {
+    display: inline-block;
+    width: 210px;
+    height: 70px;
+    background: url(../img/waveform.png) left top no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    border: 2px solid #2AD6A0;
+    padding: 10px;
+}
+
+
+/*** envelope styles ***/
+#envelope-element {
+    background: #eee;
+    height: 250px;
+}
+
+#envelope-canvas {
+    height: 70px;
+    width: 90%;
+    max-width: 1000px;
+    display: block;
+    margin: 18px auto;
+}
+
+.envelope-input-box {
+    width: 50%;
+    height: 70px;
+}
+
+.envelope-element-left {
+    float: left;
+}
+
+.envelope-element-right {
+    float: right;
+}
+
+
+/*** filter styles ***/
+#filter-element {
+    background: #fff;
+    height: 100px;
+}
+
+#filter-control-element {
+    list-style-type: none;
+    padding-top: 18px;
+}
+
+#filter-control-element li {
+    float: left;
+}
+
+#filter-control-element li:nth-child(1), #filter-control-element li:nth-child(2){
+    width: 30%;
+}
+
+#filter-control-element li:nth-child(3), #filter-control-element li:nth-child(4){
+    width: 20%;
+}
+
+
+/*** amplifier styles ***/
+#amplifier-element {
+    background: #eee;
+    height: 100px;
+}
+
+.amplifier-element-left {
+    margin: 18px auto;
+    width: 50%;
+    float: left;
+}
+
+.amplifier-element-right {
+    margin: 18px auto;
+    width: 50%;
+    float: right;
+}
+
+
+/*** synth effects styles ***/
+#syntheffects-element {
+    background: #fff;
+    height: 160px;
+}
+
+.syntheffects-input-box {
+    display: inline-block;
+    width: 33%;
+    margin: 18px 0 0 0;
+}
+
+
+
+
+/*** drum machine styles ***/
+#drummachine-element {
+    background: repeating-linear-gradient(145deg, #fff, #eee 10px, #eee 10px, #fff 20px);
+    border-top: 1.5px solid #000;
+    height: 300px;
+}
+
+#drummachine-element h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+/*** synth styles  ***/
+#synth-element {
+    background: #fff;
+    border-top: 1.5px solid #000;
+    height: 800px;
+}
+
+
+/*** overall instrument styles ***/
+
+
+.left-title-element {
+    float: left;
+    width: 9%;
+    height: 100%;
+    padding-top: 15px;
+}
+
+.music-icon {
+    max-height: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+.left-title-element h3 {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.center-title-element {
+    width: 5%;
+    display: inline-block;
+}
+
+.center-title-element h4 {
+    color: #2AD6A0;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 22px;
+}
+
+.right-instrument-element {
+    float: right;
+    width: 86%;
+    height: 100%;
+}
+
+.right-instrument-element h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 8px 0 0 20px;
+}
+
+.greybg-input {
+    -webkit-appearance: none;
+    background: #fff;
+    width: 90%;
+    height: 7px;
+    margin-left: 20px;
+    outline: none;
+}
+
+.greybg-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 15%; 
+    background: #2AD6A0;
+    cursor: pointer;
+}
+
+.whitebg-input {
+    -webkit-appearance: none;
+    background: #eee;
+    width: 90%;
+    height: 7px;
+    margin-left: 20px;
+    outline: none;
+}
+
+.whitebg-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 15%; 
+    background: #2AD6A0;
+    cursor: pointer;
+}
+
+
+
+/*** footer styles ***/
+footer {
+    height: 70px;
+    width: 100%;
+    margin-top: 140px;
+    background-color: #eee;
+    border-top: 1px solid #676767;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#footer-music-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 20%;
+}
+
+.music-buttons {
+    display: none;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 10%;
+    margin: 0 auto;
+}
+
+#music-button-play {
+    font-size: 50px;
+    display: block;
+    color: #2AD6A0;
+}
+
+#music-button-stop {
+    font-size: 40px;
+    display: block;
+    color: #2AD6A0;
+}
+
+
+/*** hidden glossary styles - triggered by mouseover ***/
+
+.glossary-mouseover {
+    height: auto;
+    width: 180px;
+    font-size: 11px;
+    background: rgba(255,255,255,.8);
+    border: 1px solid #676767;
+    border-radius: 5%;
+    padding: .5%;
+    text-align: center;
+    z-index: 5;
+    position: absolute;
+    color: #000;
+    display: none;
+}
+
+.glossary-mouseover-display {
+    display: block;
+}
+
+.glossary-mouseover h3 {
+    margin-bottom: 3px;
+    margin-left: 5px;
+    font-size: 12px;
+    text-align: left;
+}
+
+
+
+/*** hidden page styles - triggered by JS click event ***/
+
+.close-button {
+    position: absolute;
+    right: 20%;
+    top: 5%;
+    font-size: 70px;
+    text-decoration: none;
+    color: #676767;
+}
+
+.close-button:hover {
+    color: #2AD6A0;
+    text-decoration: none;
+}
+
+#how-to-play-content {
+    display: none;
+    z-index: 1000;
+    position: fixed;
+    overflow: scroll;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(rgba(230, 230, 230, .95), rgba(166, 166, 166, .95));
+    padding: 4%;
+    font-size: 20px;
+    color: #676767;
+}
+
+#keyboard-translation {
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 3% 0;
+}
