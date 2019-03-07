@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>MUSI - a sound creating app</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,400,700|Playfair+Display:100,200,300,400,500,600,700,900" rel="stylesheet">
+    <script src="https://use.fontawesome.com/b0a6ebd64a.js"></script>
+    <script src="js/Tone.js" charset="utf-8"></script>
+    <script src="js/Synth.js" charset="utf-8"></script>
+    <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+  </head>
+    
+  <body>
+    <div id="wrapper">
+      <header>  
+        <h1><a href=""><span class="green">||</span> Music App</a></h1>
+        <div id="heading-nav">
+          <button type="button" id="about-button" class="heading-nav-items">About</button> 
+          <button type="button" id="how-to-play-button" class="heading-nav-items">How to Play</button> 
+          <button type="button" id="glossary-button" class="heading-nav-items">Glossary</button> 
+        </div>
+      </header>
+      
+      <div id="ie-check">
+        <h2>Sorry, your browser is not supported.</h2>  
+        <p>We recommend using <a href="https://www.google.com/chrome/" target="_blank">Chrome</a> to access MUSI.</p>
+      </div>
+        
+      <div id="content">
+        
+        <div id="sequencer-element">
+          <div class="left-title-element">
+            <br>
+            <img src="img/placeholder-icon.png" class="music-icon" alt="Sequencer">
+            <h3 id="trigger-sequencer-mouseover">Sequencer</h3>
+            <div class="glossary-mouseover" id="sequencer-mouseover">
+              <h3>Title</h3>  
+              <p>Description of item goes here description of item goes here description of item goes here description of item goes here description of item goes here </p>
+            </div>
+          </div>
+          <div id="sequencer-instrumentnames">
+            <span>&#9654;</span>
+            <h4 id="trigger-keyboardsequencer-mouseover">Keyboard</h4><div class="space"></div>
+            <div class="glossary-mouseover" id="keyboardsequencer-mouseover">
+              <h3>Keyboard Sequencer</h3>  
+              <p>Description of item goes here description of item goes here description of item goes here description of item goes here description of item goes here description of item goes here </p>
+
+            </div>
+            <span id="drumsequencer-play" class="pink">&#9654;</span>
+            <h4 id="trigger-drumsequencer-mouseover">Drum</h4>
+          </div>
+
+          <div id="sequencer-control-element">
+            
+            <div id="keyboard-sequencer">
+              <div id="keyboard-b">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <span class="keyboard-note-label">B</span>
+              </div>
+              <div class="keyboard-sharp">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">A#</span>
+              </div>
+              <div id="keyboard-a">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">A</span>
+              </div>
+              <div class="keyboard-sharp">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">G#</span>
+              </div>
+              <div id="keyboard-g">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">G</span>
+              </div>
+              <div class="keyboard-sharp">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">F#</span>
+              </div>
+              <div id="keyboard-f">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">F</span>
+              </div>
+              <div id="keyboard-e">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">E</span>
+              </div>
+              <div class="keyboard-sharp">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">D#</span>
+              </div>
+              <div id="keyboard-d">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">D</span>
+              </div>
+              <div class="keyboard-sharp">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">C#</span>
+              </div>
+              <div id="keyboard-c">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                  <span class="keyboard-note-label">D   </span>
+              </div>
+            </div>
+            
+            <div id="drum-sequencer">
+              <div id="drum-sequencer-construction">
+                <h3>Coming soon</h3>
+              </div>
+              <div id="drum-kick">
+                <input type="checkbox" class="drum-input"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <span class="drum-note-label">&#129345;</span>
+              </div>
+              <div id="drum-snare">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <span class="drum-note-label">&#129345;</span>
+              </div>
+              <div id="drum-timpani">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <span class="drum-note-label">&#129345;</span>
+              </div>
+              <div id="drum-cymbal">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+                <span class="drum-note-label">&#129345;</span>
+              </div>
+            </div>
+        
+        </div><!-- end sequencer element --> 
+        
+        </div>    
+        <div id="tab">
+          <button class="tab-links" onclick="openInstrument(event, 'drummachine-element')">Drum</button>
+          <button class="tab-links" onclick="openInstrument(event, 'synth-element')" id="defaultOpen">Keyboard</button>
+        </div>
+          
+        <div id="synth-element" class="instrument-element">
+          
+          <div id="oscillator-element">
+            <div class="left-title-element">
+              <img src="img/placeholder-icon.png" class="music-icon" alt="Synthesizer oscillator">
+              <h3>Oscillator</h3>
+            </div>
+            <div class="right-instrument-element">
+              <ul id="oscillator-waveform-element">
+                <li>
+                  <input id="oscillator-sine" type="checkbox" value="sine" oninput="synthesizer.setOscWaveform(this.value)" checked>
+                  <label for="oscillator-sine" class="oscillator-checkbox"><span> </span></label>
+                </li>
+                  
+                <li>
+                  <input id="oscillator-sawtooth" type="checkbox" value="sawtooth" oninput="synthesizer.setOscWaveform(this.value)">
+                  <label for="oscillator-sawtooth" class="oscillator-checkbox"><span> </span></label>
+                </li>
+                  
+                <li>
+                  <input id="oscillator-square" type="checkbox" value="square" oninput="synthesizer.setOscWaveform(this.value)">
+                  <label for="oscillator-square" class="oscillator-checkbox"><span> </span></label>
+                </li>
+                  
+                <li>
+                  <input id="oscillator-triangle" type="checkbox" value="triangle" oninput="synthesizer.setOscWaveform(this.value)">
+                  <label for="oscillator-triangle" class="oscillator-checkbox"><span> </span></label>
+                </li>
+              </ul>
+            </div>
+          </div>  <!-- end synth oscillator -->
+            <br>
+          
+          <div id="envelope-element">
+            <div class="left-title-element">
+              <img src="img/placeholder-icon.png" class="music-icon" alt="Synthesizer envelope">
+              <h3>Envelope</h3>
+            </div>
+            <div class="right-instrument-element">
+              <!--<canvas id="envelope-canvas" width="1000" height="70">Your browser does not support the HTML5 canvas tag.</canvas>-->
+              <div class="envelope-element-left envelope-input-box">
+                <input type="range" value="0.05" min="0.05" max="2.0" step=".05" oninput="synthesizer.setEnvelopeAttack(parseFloat(this.value))" name="" class="greybg-input">
+                <h4>Attack</h4>
+            </div> 
+            <div class="envelope-element-right envelope-input-box">
+              <input type="range" value=".5" min="0.05" max="1.0" step=".05" oninput="synthesizer.setEnvelopeSustain(parseFloat(this.value))" name="" class="greybg-input">
+              <h4>Sustain</h4>
+            </div>
+             <div class="envelope-element-left envelope-input-box">
+              <input type="range" value=".5" min=".05" max="2.0" step=".05"  oninput="synthesizer.setEnvelopeDecay(parseFloat(this.value))" name="" class="greybg-input">
+              <h4>Decay</h4>
+            </div>
+            <div class="envelope-element-right envelope-input-box">
+              <input type="range" value=".1" min="0.05" max="2.0" step=".05" oninput="synthesizer.setEnvelopeRelease(parseFloat(this.value))" name="" class="greybg-input">
+              <h4>Release</h4>
+            </div>
+            </div>
+          </div>  <!-- end synth envelope -->
+            <br>
+            
+          <div id="filter-element">
+            <div class="left-title-element">
+              <img src="img/placeholder-icon.png" class="music-icon" alt="Synthesizer filter">
+              <h3>Filter</h3>
+            </div>
+            <div class="right-instrument-element">
+              <ul id="filter-control-element">
+                <li>
+                  <input type="range" value="6000" min="1" max="6000" oninput="synthesizer.setCutoffFreq(this.value)" name="" class="whitebg-input"><br>  
+                  <h4>Cutoff Frequency</h4>
+                </li>
+                <li>
+                  <input type="range" value="1" min="1" max="20" oninput="synthesizer.setQ(this.value)" name="" class="whitebg-input"> <br> 
+                  <h4>Resonance</h4>
+                </li>
+                <li>
+                  <div class="custom-select" style="width:138px;">
+                    <select oninput="synthesizer.setFilterType(this.value)" class="filter-select" name="">
+                      <option value="filter-type">Filter Type</option>
+                      <option value="lowpass">Lowpass</option>
+                      <option value="highpass">Highpass</option>
+                      <option value="bandpass">Bandpass</option>
+                      <option value="notch">Notch</option>
+                    </select>
+                  </div><br>
+                </li>
+                <li>
+                  <div class="custom-select" style="width:138px;">
+                    <select oninput="synthesizer.setFilterRolloff(parseInt(this.value))" class="filter-select" name="">
+                      <option value="rolloff-type">Rolloff</option>
+                      <option value="-12">-12</option>
+                      <option value="-24">-24</option>
+                      <option value="-48">-48</option>
+                      <option value="-96">-96</option>
+                    </select>
+                  </div><br>
+                </li>
+              </ul>
+            </div>
+          </div>  <!-- end synth filter -->
+            <br>
+            
+          <div id="amplifier-element">
+            <div class="left-title-element">
+              <img src="img/placeholder-icon.png" class="music-icon" alt="Synthesizer amplifier">
+              <h3>Amplifier</h3>
+            </div>
+            <div class="right-instrument-element">
+              <div class="amplifier-element-left amplifier-input-box">
+                <input type="range" value="0" min="0" max="10" oninput="synthesizer.setDistortion(this.value)" name="" class="greybg-input"><br>
+                <h4>Distortion</h4>
+              </div>
+              <div class="amplifier-element-right amplifier-input-box">
+                <input type="range" value="0" min="-48" max="12" oninput="synthesizer.setVolume(this.value)" name="" class="greybg-input"><br>
+                <h4>Volume</h4>
+              </div>
+            </div>
+          </div>  <!-- end synth amplifier -->
+          <br>
+            
+          <div id="syntheffects-element">  
+            <div class="left-title-element">
+              <img src="img/placeholder-icon.png" class="music-icon" alt="Synthesizer effects">
+              <h3>Effects</h3>
+            </div>  
+              
+            <div class="center-title-element">
+              <h4>Delay</h4><br>
+              <h4>Reverb</h4>
+            </div>
+              
+            <!-- synth delay effects -->
+            <div class="right-instrument-element">
+              <div class="syntheffects-element-left syntheffects-input-box">
+                <input type="range" value="440" min="1" max="1000" oninput="synthesizer.setDelayTime(this.value)" name="" class="whitebg-input"><br>
+                <h4>Time</h4>
+              </div>
+              <div class="syntheffects-element-center syntheffects-input-box">
+                <input type="range" value="2" min="1" max="9" oninput="synthesizer.setDelayFeedback(this.value)" name="" class="whitebg-input"><br>
+                <h4>Feedback</h4>
+              </div>
+              <div class="syntheffects-element-right syntheffects-input-box">
+                <input type="range" value="5" min="0" max="10" oninput="synthesizer.setDelayWet(this.value)" name="" class="whitebg-input"><br>
+                <h4>Delay Dry/Wet</h4>
+              </div>
+                
+            <!-- synth reverb effects -->
+              <div class="syntheffects-element-left syntheffects-input-box">
+                <input type="range" value="500" min="1" max="950" oninput="synthesizer.setReverbRoomSize(this.value)" name="" class="whitebg-input"><br>
+                <h4>Room Size</h4>
+              </div>
+              <div class="syntheffects-element-center syntheffects-input-box">
+                <input type="range" value="3000" min="1" max="6000" oninput="synthesizer.setReverbDampening(this.value)" name="" class="whitebg-input"><br>
+                <h4>Dampening</h4>
+              </div>
+              <div class="syntheffects-element-right syntheffects-input-box">
+                <input type="range" value="5" min="0" max="10" oninput="synthesizer.setReverbWet(this.value)" name="" class="whitebg-input"><br>
+                <h4>Reverb Dry/Wet</h4>
+              </div>    
+            </div>
+          </div>  <!-- end synth effects -->
+            
+        </div>
+          
+        <div id="drummachine-element" class="instrument-element">
+            <h2>Coming soon</h2>
+        </div>
+          
+      </div> <!-- end content -->
+      
+      <footer>
+        <div id="footer-music-buttons">
+          <button type="button" name="button" class="music-buttons" id="music-button-play">&#9654;</button>
+          <button type="button" name="button" class="music-buttons" id="music-button-stop">	&#9632;</button>
+        </div>
+      </footer>   
+      
+    </div> <!-- end wrapper -->
+      
+    <!-- hidden page elements - triggered by JS click event -->
+    
+    <!-- "about" -->  
+    <div id="about-content">
+      <span id="hide-about"><a href="" class="close-button">&times;</a></span>
+      <h2>About MUSI</h2>
+      <br>
+      <p>Etiam eros erat, ornare id turpis in, mollis rutrum dolor. In viverra ultricies enim sed imperdiet. Curabitur bibendum gravida facilisis. Curabitur ut leo risus. Vivamus quam sem, venenatis sit amet elementum vitae, posuere ut leo.</p><br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum auctor dui non vestibulum. Etiam ac neque vel libero placerat porttitor at nec ipsum. Nullam pulvinar sagittis convallis. Sed finibus leo id massa consequat, quis aliquet nulla molestie. Nunc tempus nunc vitae lacus tempus aliquam. Ut non faucibus felis. Pellentesque ut justo aliquam, tempus mi imperdiet, hendrerit leo. Praesent lobortis a quam in pulvinar. Quisque nec neque in ipsum hendrerit interdum quis vel odio. Sed nec suscipit purus. Quisque in molestie lectus.</p>
+    </div>  
+      
+    <!-- "how to play" -->  
+    <div id="how-to-play-content">
+      <span id="hide-how-to-play"><a href="" class="close-button">&times;</a></span>
+      <h2>How to use this app</h2>
+      <br>
+      <p>Etiam eros erat, ornare id turpis in, mollis rutrum dolor. In viverra ultricies enim sed imperdiet. Curabitur bibendum gravida facilisis. Curabitur ut leo risus. Vivamus quam sem, venenatis sit amet elementum vitae, posuere ut leo.</p><br>
+      <p>Etiam eros erat, ornare id turpis in, mollis rutrum dolor. In viverra ultricies enim sed imperdiet. Curabitur bibendum gravida facilisis. Curabitur ut leo risus. Vivamus quam sem, venenatis sit amet elementum vitae, posuere ut leo.</p>
+      <img src="img/simple-keyboard.svg" alt="keyboard displaying keys for synthesizer control" id="keyboard-translation">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum auctor dui non vestibulum. Etiam ac neque vel libero placerat porttitor at nec ipsum. Nullam pulvinar sagittis convallis. Sed finibus leo id massa consequat, quis aliquet nulla molestie. Nunc tempus nunc vitae lacus tempus aliquam. Ut non faucibus felis. Pellentesque ut justo aliquam, tempus mi imperdiet, hendrerit leo. Praesent lobortis a quam in pulvinar. Quisque nec neque in ipsum hendrerit interdum quis vel odio. Sed nec suscipit purus. Quisque in molestie lectus.</p>
+    </div>
+      
+    <div id="glossary-content">
+      <span id="hide-glossary"><a href="" class="close-button">&times;</a></span>
+      <h2>Glossary of Terms</h2>
+      <br>
+      <p>Etiam eros erat, ornare id turpis in, mollis rutrum dolor. In viverra ultricies enim sed imperdiet. Curabitur bibendum gravida facilisis. Curabitur ut leo risus. Vivamus quam sem, venenatis sit amet elementum vitae, posuere ut leo.</p><br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum auctor dui non vestibulum. Etiam ac neque vel libero placerat porttitor at nec ipsum. Nullam pulvinar sagittis convallis. Sed finibus leo id massa consequat, quis aliquet nulla molestie. Nunc tempus nunc vitae lacus tempus aliquam. Ut non faucibus felis. Pellentesque ut justo aliquam, tempus mi imperdiet, hendrerit leo. Praesent lobortis a quam in pulvinar. Quisque nec neque in ipsum hendrerit interdum quis vel odio. Sed nec suscipit purus. Quisque in molestie lectus.</p>
+    </div> 
+    
+    <script type="text/javascript">
+      const synthesizer = new Synth();
+        
+    </script>
+    <script src="js/music-scripts.js" charset="utf-8"></script>
+    <script src="js/ui-scripts.js" charset="utf-8"></script>
+    <script src="js/keyboard.js" charset="utf-8"></script>
+  </body>
+      
+</html>
